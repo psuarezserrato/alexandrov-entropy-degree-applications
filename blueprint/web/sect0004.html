@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simplicial Volume and Boundary Volume Rigidity</title>
+<link rel="next" href="sect0005.html" title="Gromov–Hausdorff Volume and Entropy-Volume Stability" />
+<link rel="prev" href="sect0003.html" title="Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori" />
+<link rel="up" href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Analytic Degree, Theorem 1.1, and Core Reduction Lemmas</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Branched Coverings and Einstein 4-Orbifold Obstructions</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Simplicial Volume and Boundary Volume Rigidity</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Gromov–Hausdorff Volume and Entropy-Volume Stability</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">Cone-Manifold and Orbifold Global Volume Minimality</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000005">4 Simplicial Volume and Boundary Volume Rigidity</h1>
+<p>This chapter formalizes Theorems&#160;1.9 and&#160;1.10 of <span class="ttfamily">arXiv:2606.30403</span> in <span class="ttfamily">AlexandrovConsequences/SimplicialAndBoundaryRigidity.lean</span>. </p>
+<div class="definition_thmwrapper theorem-style-definition" id="def_gromov_simplicial_volume">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">4.1</span>
+    <span class="definition_thmtitle">Gromov’s Simplicial Volume</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#def_gromov_simplicial_volume">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gromovSimplicialVolume" class="lean_decl">AlexandrovConsequences.gromovSimplicialVolume</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gromovSimplicialVolume_nonneg" class="lean_decl">AlexandrovConsequences.gromovSimplicialVolume_nonneg</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   Given fundamental-cycle representatives <span class="ttfamily">Cycles</span> with \(\ell ^1\)-norm functional <span class="ttfamily">l1Norm</span>, \(\| DM\|  := \inf _{c \in \mathrm{Cycles}} \| c\| _1 \ge 0\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_simplicial_volume">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">4.2</span>
+    <span class="theorem_thmtitle">Theorem 1.9: Acylindrical Convex-Core Bound via Storm’s Theorem</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#thm_simplicial_volume">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000027"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#def_gromov_simplicial_volume">Definition 4.1</a></li>
+          
+          <li><a href="sect0001.html#lem_strictness_and_doubling">Lemma 1.6</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.acylindrical_convex_core_simplicial_bound_scaled" class="lean_decl">AlexandrovConsequences.acylindrical_convex_core_simplicial_bound_scaled</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.acylindrical_convex_core_simplicial_bound" class="lean_decl">AlexandrovConsequences.acylindrical_convex_core_simplicial_bound</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    For a relative degree-\(k\) map \(f : (Z, \partial Z) \to (M, \partial M)\) into a compact acylindrical \(3\)-manifold \(M\) with Thurston geodesic-boundary model \(\psi : M \to M_{\mathrm{geod}}\) (\(|\deg (\psi )| = 1\)), Perelman doubling of \(C_Z\) and Storm’s identity \(\operatorname {Vol}(DC_{M_{\mathrm{geod}}}) = \| DM\| \) (or \(v_3 \| DM\| \)) yield \(\operatorname {Vol}(C_Z) \ge \frac{|k|}{2}\, \| DM\| \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000027">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Use \(|\deg (\psi \circ f)| = |k|\) and matched entropy \(h_0 = 2\) on the doubles, then divide by \(2\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_boundary_rigidity">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">4.3</span>
+    <span class="theorem_thmtitle">Theorem 1.10: Boundary Volume Inequality and Rigidity</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#thm_boundary_rigidity">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000028"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#cor_manifold_boundary">Corollary 3.2</a></li>
+          
+          <li><a href="sect0001.html#thm_alexandrov_entropy_degree">Theorem 1.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_boundary_volume_inequality" class="lean_decl">AlexandrovConsequences.alexandrov_boundary_volume_inequality</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_boundary_volume_rigidity" class="lean_decl">AlexandrovConsequences.alexandrov_boundary_volume_rigidity</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    For a compact orientable \(N\)-dimensional (\(N \ge 3\)) \(\mathrm{Alex}(-1)\) space \(X\) with boundary mapped with degree \(k \neq 0\) to a compact hyperbolic \(N\)-manifold \(Y\) with totally geodesic boundary, \(\operatorname {Vol}(X) \ge |k|\, \operatorname {Vol}(Y)\). Moreover, if \(\operatorname {Vol}(X) = |k|\, \operatorname {Vol}(Y)\) and \(|k| = [\pi _1(DY) : (Df)_* \pi _1(DX)]\), then \(h(\overline{DX}) = N - 1\) (homothety factor \(c = 1\)), \(\mathcal{S}_{DX} = \emptyset \), \(DX\) is globally isometric to the degree-\(|k|\) cover \(\widehat{DY}\), \(\partial X = \mathrm{Fix}(\iota _{DX})\) is totally geodesic, and \(|k| = 1\) implies \(X \cong Y\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000028">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Volume equality \(\operatorname {Vol}(DX) = |k|\, \operatorname {Vol}(DY) {\gt} 0\) together with Theorem&#160;1.1 sandwiches \((N-1)^N \le h(\overline{DX})^N \le (N-1)^N\), forcing \(h(\overline{DX}) = N - 1\) by strict monotonicity of \(x \mapsto x^N\) on \([0, \infty )\) and triggering unrescaled (\(c = 1\)) rigidity. </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0003.html" title="Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0005.html" title="Gromov–Hausdorff Volume and Entropy-Volume Stability"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

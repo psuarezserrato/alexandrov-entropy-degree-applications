@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gromov–Hausdorff Volume and Entropy-Volume Stability</title>
+<link rel="next" href="sect0006.html" title="Cone-Manifold and Orbifold Global Volume Minimality" />
+<link rel="prev" href="sect0004.html" title="Simplicial Volume and Boundary Volume Rigidity" />
+<link rel="up" href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Analytic Degree, Theorem 1.1, and Core Reduction Lemmas</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Branched Coverings and Einstein 4-Orbifold Obstructions</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Simplicial Volume and Boundary Volume Rigidity</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Gromov–Hausdorff Volume and Entropy-Volume Stability</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">Cone-Manifold and Orbifold Global Volume Minimality</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000006">5 Gromov–Hausdorff Volume and Entropy-Volume Stability</h1>
+<p>This chapter formalizes Corollaries&#160;1.11 and&#160;1.12 of <span class="ttfamily">arXiv:2606.30403</span> in <span class="ttfamily">AlexandrovConsequences/GromovHausdorffStability.lean</span>. </p>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem_reviron_entropy_lsc">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">5.1</span>
+    <span class="lemma_thmtitle">Reviron Entropy Lower-Semicontinuity Product Limit</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#lem_reviron_entropy_lsc">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000029"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.limit_entropy_pow_le_of_eventually_add_eps" class="lean_decl">AlexandrovConsequences.limit_entropy_pow_le_of_eventually_add_eps</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   If \(\operatorname {Vol}(M_i) \to V_X {\gt} 0\), \(h(\widetilde{M}_i)^N \operatorname {Vol}(M_i) \to L\), and \(\forall \varepsilon {\gt} 0, \forall ^\infty i,\,  h_{\mathrm{lim}} \le h(\widetilde{M}_i) + \varepsilon \), then \(h_{\mathrm{lim}}^N V_X \le L\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000029">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Since \(V_X {\gt} 0\), \(h(\widetilde{M}_i)^N \to L / V_X\). For each \(\varepsilon {\gt} 0\), eventually \((\max (h_{\mathrm{lim}} - \varepsilon , 0))^N \le h(\widetilde{M}_i)^N\), so taking \(i \to \infty \) and then \(\varepsilon \to 0^+\) yields \(h_{\mathrm{lim}}^N \le L / V_X\). </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_gh_stability">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">5.2</span>
+    <span class="corollary_thmtitle">Corollary 1.11: Gromov–Hausdorff Stability of Hyperbolic Volume</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#cor_gh_stability">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000030"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#thm_alexandrov_entropy_degree">Theorem 1.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gh_hyperbolic_volume_stability" class="lean_decl">AlexandrovConsequences.gh_hyperbolic_volume_stability</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    If closed \(N\)-manifolds \((M_i)\) (\(N \ge 3\), \(\mathrm{sec} \ge -1\)) converge in Gromov–Hausdorff distance to \((X, \mathsf{d})\) with \(\operatorname {Vol}(M_i) \to k\, \operatorname {Vol}(Y)\) (\(k \ge 1\)) and Perelman stability transfers \(|\deg | = \mathrm{index} = k\), then \(\operatorname {Vol}(X) = k\, \operatorname {Vol}(Y)\), \(h(\widetilde{X}) = N - 1\), \(\mathcal{S}_X = \emptyset \), and \(X\) is globally isometric to the smooth degree-\(k\) hyperbolic cover of \(Y\) (\(Y\) itself when \(k = 1\)). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000030">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Uniqueness of Hausdorff limits equates \(\operatorname {Vol}(X) = k\, \operatorname {Vol}(Y)\); Perelman stability transfers degree/index \(k\); and Theorem&#160;1.1 squeezes \(h(\widetilde{X}) = N - 1\), triggering unrescaled rigidity. </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_gh_stability2">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">5.3</span>
+    <span class="corollary_thmtitle">Corollary 1.12: Locally Symmetric GH Entropy-Volume Stability</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#cor_gh_stability2">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000031"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#lem_reviron_entropy_lsc">Lemma 5.1</a></li>
+          
+          <li><a href="sect0001.html#thm_alexandrov_entropy_degree">Theorem 1.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gh_locally_symmetric_entropy_volume_stability" class="lean_decl">AlexandrovConsequences.gh_locally_symmetric_entropy_volume_stability</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    For any closed orientable negatively curved locally symmetric \(N\)-manifold \(Y\) (\(N \ge 3\)), if \(h(\widetilde{M}_i)^N \operatorname {Vol}(M_i) \to k\, h(\widetilde{Y})^N \operatorname {Vol}(Y)\) (\(k \ge 1\)), \(\operatorname {Vol}(M_i) \to \operatorname {Vol}(X) {\gt} 0\), and Reviron’s entropy lower-semicontinuity holds, then \(h(\widetilde{X})^N \operatorname {Vol}(X) = k\, h(\widetilde{Y})^N \operatorname {Vol}(Y)\), \(h(\widetilde{X}) {\gt} 0\), \(\mathcal{S}_X = \emptyset \), and \((X, (h(\widetilde{X})/h(\widetilde{Y}))\mathsf{d}_X)\) is globally isometric to the smooth degree-\(k\) cover \(\widehat{Y}\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000031">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Combine Lemma&#160;<a href="sect0005.html#lem_reviron_entropy_lsc">5.1</a> (\(\le \)) with Theorem&#160;1.1 (\(\ge \)) to obtain equality, extract \(h(\widetilde{X}) {\gt} 0\), and apply Theorem&#160;1.1 equality rigidity. </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0004.html" title="Simplicial Volume and Boundary Volume Rigidity"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0006.html" title="Cone-Manifold and Orbifold Global Volume Minimality"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

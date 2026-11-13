@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Analytic Degree, Theorem 1.1, and Core Reduction Lemmas</title>
+<link rel="next" href="sect0002.html" title="Branched Coverings and Einstein 4-Orbifold Obstructions" />
+<link rel="prev" href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4" />
+<link rel="up" href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class=" active current">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Analytic Degree, Theorem 1.1, and Core Reduction Lemmas</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Branched Coverings and Einstein 4-Orbifold Obstructions</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Simplicial Volume and Boundary Volume Rigidity</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Gromov–Hausdorff Volume and Entropy-Volume Stability</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">Cone-Manifold and Orbifold Global Volume Minimality</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000002">1 Analytic Degree, Theorem 1.1, and Core Reduction Lemmas</h1>
+<p>This chapter establishes the degree-theoretic foundations (§5 of <span class="ttfamily">arXiv:2606.30403</span>), bridges the main theorem of <span class="ttfamily">arXiv:2606.30403</span> (Theorem&#160;1.1) and Remark&#160;1.15 to the upstream <span class="ttfamily">RCDEntropyDegree.RCD</span> library, and isolates the reusable strictness and metric-doubling meta-lemmas in <span class="ttfamily">AlexandrovConsequences/Foundation.lean</span>. </p>
+<div class="definition_thmwrapper theorem-style-definition" id="def_analytic_degree">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">1.1</span>
+    <span class="definition_thmtitle">Analytic Degree and Mitsuishi Comparison Bridge</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#def_analytic_degree">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.analyticDegree" class="lean_decl">AlexandrovConsequences.analyticDegree</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.MitsuishiDegreeBridge" class="lean_decl">AlexandrovConsequences.MitsuishiDegreeBridge</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   Let \((X, \mathsf{d}, \mu _X)\) be a finite-measure space and \(Y\) a closed oriented Riemannian \(N\)-manifold with volume \(\operatorname {Vol}(Y) {\gt} 0\). The <em>analytic degree</em> of a map \(f : X \to Y\) with signed metric Jacobian \(\mathrm{sJac}_f\) is </p>
+<div class="displaymath" id="a0000000008">
+  \[  \deg _{\mathrm{an}}(f) := \frac{1}{\operatorname {Vol}(Y)} \int _X \mathrm{sJac}_f(x)\, d\mu _X(x).  \]
+</div>
+<p> A <em>Mitsuishi degree bridge</em> packages \(Y\) together with a fundamental current, singular homology degree \(\deg _{\mathrm{top}}(f)\), current pushforward degree \(\deg _{\mathrm{curr}}(f)\), and the naturality identity \(\deg _{\mathrm{curr}}(f) = \deg _{\mathrm{top}}(f)\) induced by Mitsuishi’s comparison isomorphism \(\Psi : H_N^{\mathbf{I}}(X) \xrightarrow {\sim } H_N(X;\mathbb {Z})\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem_analytic_degree_integral_bound">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">1.2</span>
+    <span class="lemma_thmtitle">Analytic Degree Integral Bound</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#lem_analytic_degree_integral_bound">#</a>
+    
+    <a class="icon proof" href="sect0001.html#a0000000009"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#def_analytic_degree">Definition 1.1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.abs_analyticDegree_mul_vol_le_integral_abs" class="lean_decl">AlexandrovConsequences.abs_analyticDegree_mul_vol_le_integral_abs</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>    For any integrable signed metric Jacobian \(\mathrm{sJac}_f\) and \(\operatorname {Vol}(Y) {\gt} 0\), \(|\deg _{\mathrm{an}}(f)|\, \operatorname {Vol}(Y) \le \int _X |\mathrm{sJac}_f(x)|\, d\mu _X(x)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000009">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Cancel \(\operatorname {Vol}(Y)^{-1} \cdot \operatorname {Vol}(Y) = 1\) using \(\operatorname {Vol}(Y) {\gt} 0\) and apply the triangle inequality for the Bochner integral. </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_analytic_eq_topological_degree">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">1.3</span>
+    <span class="theorem_thmtitle">Analytic Degree Equals Topological Degree on Class \(\mathcal{S}\) Spaces</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#thm_analytic_eq_topological_degree">#</a>
+    
+    <a class="icon proof" href="sect0001.html#a0000000010"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#def_analytic_degree">Definition 1.1</a></li>
+          
+          <li><a href="sect0001.html#lem_analytic_degree_integral_bound">Lemma 1.2</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.analytic_eq_topological_degree" class="lean_decl">AlexandrovConsequences.analytic_eq_topological_degree</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.ClassSSpace" class="lean_decl">AlexandrovConsequences.ClassSSpace</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.s_space_analytic_eq_topological_degree" class="lean_decl">AlexandrovConsequences.s_space_analytic_eq_topological_degree</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    On any class \(\mathcal{S}\) space \(X\) (compact orientable \(N\)-metric space with \(\mathcal{H}^{N-1}(\mathcal{S}_X) = 0\) and Mitsuishi comparison isomorphism \(\Psi \)), every Lipschitz map \(f : X \to Y\) satisfies Kirchheim’s signed area formula and hence </p>
+<div class="displaymath" id="a0000000011">
+  \[  \deg _{\mathrm{an}}(f) = \deg _{\mathrm{top}}(f).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000010">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Substituting Kirchheim’s signed area identity \(\int _X \mathrm{sJac}_f\, d\mathcal{H}^N = \deg _{\mathrm{curr}}(f)\, \mathcal{H}^N(Y)\) into \(\deg _{\mathrm{an}}(f)\) cancels \(\mathcal{H}^N(Y)\), and Mitsuishi naturality yields \(\deg _{\mathrm{top}}(f)\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_alexandrov_entropy_degree">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">1.4</span>
+    <span class="theorem_thmtitle">Theorem 1.1: Alexandrov Entropy-Degree Theorem and Smoothness Rigidity</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#thm_alexandrov_entropy_degree">#</a>
+    
+    <a class="icon proof" href="sect0001.html#a0000000012"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#thm_analytic_eq_topological_degree">Theorem 1.3</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_entropy_degree_inequality_continuous" class="lean_decl">AlexandrovConsequences.alexandrov_entropy_degree_inequality_continuous</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_entropy_degree_rigidity" class="lean_decl">AlexandrovConsequences.alexandrov_entropy_degree_rigidity</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    Let \(X\) be a closed orientable \(N\)-dimensional Alexandrov space without boundary (\(\mathrm{curv} \ge \kappa \)) and \(f : X \to Y\) a continuous map into a closed orientable negatively curved locally symmetric \(N\)-manifold \(Y\). Via Lipschitz approximation \(f_{\mathrm{lip}} \simeq f\), </p>
+<div class="displaymath" id="a0000000013">
+  \[  |\deg (f)| \,  h(\widetilde{Y})^N \,  \mathcal{H}^N(Y) \le h(\overline{X})^N \,  \mathcal{H}^N(X).  \]
+</div>
+<p> Furthermore, if equality holds together with \(|\deg (f)| = [\pi _1(Y) : f_*\pi _1(X)] \ge 1\), then the rescaled limit map \(\hat{F}_\infty : (X, c\, \mathsf{d}_X) \to \widehat{Y}\) (\(c = h(\overline{X})/h(\widetilde{Y}) {\gt} 0\)) is a surjective global homothety onto the degree-\(|\deg (f)|\) cover \(\widehat{Y}\), and hence \(\mathcal{S}(X) = \emptyset \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000012">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Homotopy invariance equates \(\deg (f) = \deg (f_{\mathrm{lip}})\) in <span class="ttfamily">RCDEntropyDegree.RCD.alexandrov_entropy_degree_inequality</span>, and equality rigidity transfers smoothness from \(\widehat{Y}\) via <span class="ttfamily">RCDEntropyDegree.RCD.rcd_entropy_degree_equality_rigidity</span>. </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem_remark_index_necessity">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">1.5</span>
+    <span class="lemma_thmtitle">Remark 1.15: Necessity of the Index Condition and Connected-Sum Counterexample</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#lem_remark_index_necessity">#</a>
+    
+    <a class="icon proof" href="sect0001.html#a0000000014"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#thm_alexandrov_entropy_degree">Theorem 1.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.abs_degree_eq_index_iff_lift_degree_one" class="lean_decl">AlexandrovConsequences.abs_degree_eq_index_iff_lift_degree_one</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.connected_sum_rigidity_counterexample" class="lean_decl">AlexandrovConsequences.connected_sum_rigidity_counterexample</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>    In the covering factorization \(|\deg (f)| = |\deg (\hat{f})| \cdot [\pi _1(Y) : f_*\pi _1(X)]\) with \(\deg (f) \neq 0\), we have \(|\deg (f)| = [\pi _1(Y) : f_*\pi _1(X)] \iff |\deg (\hat{f})| = 1\). For the pinch map \(Y \#  Y \to Y \vee Y \to Y\) (\(b_1(Y) \ge 1\)), \(|\deg (f)| = 2 {\gt} 1 = [\pi _1(Y):f_*\pi _1(X)]\) and \(b_1(Y \#  Y) = 2 b_1(Y) \neq b_1(Y)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000014">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Cancel the positive integer index \([\pi _1(Y) : f_*\pi _1(X)] \ge 1\) in the degree factorization, and compare \(2 b_1(Y) \neq b_1(Y)\) for \(b_1(Y) \ge 1\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem_strictness_and_doubling">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">1.6</span>
+    <span class="lemma_thmtitle">Strictness, Entropy Bounds, and Metric Doubling Cancellation</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#lem_strictness_and_doubling">#</a>
+    
+    <a class="icon proof" href="sect0001.html#a0000000015"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#thm_alexandrov_entropy_degree">Theorem 1.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.strict_entropy_volume_of_singularSet_nonempty" class="lean_decl">AlexandrovConsequences.strict_entropy_volume_of_singularSet_nonempty</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.upper_entropy_bound_volume_inequality" class="lean_decl">AlexandrovConsequences.upper_entropy_bound_volume_inequality</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.same_entropy_volume_degree_bound" class="lean_decl">AlexandrovConsequences.same_entropy_volume_degree_bound</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.same_entropy_strict_volume_degree_bound" class="lean_decl">AlexandrovConsequences.same_entropy_strict_volume_degree_bound</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.metric_doubling_volume_degree_bound" class="lean_decl">AlexandrovConsequences.metric_doubling_volume_degree_bound</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  
+<ol class="enumerate">
+  <li><p>Whenever \(\mathcal{S}_X \neq \emptyset \), \(|\deg (f)| = [\pi _1(Y):f_*\pi _1(X)] \ge 1\), and equality forces \(\mathcal{S}_X = \emptyset \), the entropy-volume inequality is strict (\({\lt}\)). </p>
+</li>
+  <li><p>Whenever \(0 \le h(\overline{X}) \le h_0\) (\(h_0 {\gt} 0\)) and \(h(\widetilde{Y}) = h_0\), Theorem&#160;1.1 yields \(|\deg (f)|\operatorname {Vol}(Y) \le \mathcal{H}^N(X)\) (and \({\lt}\) when strict). </p>
+</li>
+  <li><p>Under Perelman/Petrunin doubling \(\mathcal{H}^N(DZ) = 2\mathcal{H}^N(Z)\) and \(\mathcal{H}^N(DY) = 2\mathcal{H}^N(Y)\), cancelling \(2 h_0^N {\gt} 0\) gives \(|k|\mathcal{H}^N(Y) \le \mathcal{H}^N(Z)\). </p>
+</li>
+</ol>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000015">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Any equality contradicts \(\mathcal{S}_X \neq \emptyset \); monotonicity of \(x \mapsto x^N\) on \([0,\infty )\) and positivity of \(h_0^N\) and \(2 h_0^N\) give the volume and doubling bounds. </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0002.html" title="Branched Coverings and Einstein 4-Orbifold Obstructions"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

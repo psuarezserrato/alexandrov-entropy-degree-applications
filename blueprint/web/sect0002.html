@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Branched Coverings and Einstein 4-Orbifold Obstructions</title>
+<link rel="next" href="sect0003.html" title="Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori" />
+<link rel="prev" href="sect0001.html" title="Analytic Degree, Theorem 1.1, and Core Reduction Lemmas" />
+<link rel="up" href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Analytic Degree, Theorem 1.1, and Core Reduction Lemmas</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Branched Coverings and Einstein 4-Orbifold Obstructions</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Simplicial Volume and Boundary Volume Rigidity</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Gromov–Hausdorff Volume and Entropy-Volume Stability</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">Cone-Manifold and Orbifold Global Volume Minimality</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000003">2 Branched Coverings and Einstein 4-Orbifold Obstructions</h1>
+<p>This chapter formalizes Corollaries&#160;1.2 and&#160;1.3 of <span class="ttfamily">arXiv:2606.30403</span> in <span class="ttfamily">AlexandrovConsequences/BranchedCoversEinstein.lean</span>. </p>
+<div class="definition_thmwrapper theorem-style-definition" id="def_branched_cone_angle">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">2.1</span>
+    <span class="definition_thmtitle">Cyclic Branched Cover Cone Angle and Density Drop</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#def_branched_cone_angle">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.branchedConeAngle" class="lean_decl">AlexandrovConsequences.branchedConeAngle</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.branchedCoverConeAngle_bounds" class="lean_decl">AlexandrovConsequences.branchedCoverConeAngle_bounds</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.not_mem_regularSet_of_coneAngle_lt_two_pi" class="lean_decl">AlexandrovConsequences.not_mem_regularSet_of_coneAngle_lt_two_pi</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.branchedQuotient_singularSet_nonempty" class="lean_decl">AlexandrovConsequences.branchedQuotient_singularSet_nonempty</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   For a \(d\)-fold cyclic branched cover \(M_d \to M\) (\(d \ge 2\)), the quotient \(X = M_d / \mathbb {Z}_d\) carries normal cone angle \(\alpha = 2\pi / d \le \pi {\lt} 2\pi \) along the branch locus \(\Sigma \), giving Bishop–Gromov density \(\theta _N(x_0) = \alpha /(2\pi ) {\lt} 1\) and hence \(\mathcal{S}_X \neq \emptyset \). </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_hamenstadt_gen">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">2.2</span>
+    <span class="corollary_thmtitle">Corollary 1.2: Branched Coverings and Hamenstädt’s Question</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#cor_hamenstadt_gen">#</a>
+    
+    <a class="icon proof" href="sect0002.html#a0000000016"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#def_branched_cone_angle">Definition 2.1</a></li>
+          
+          <li><a href="sect0001.html#lem_strictness_and_doubling">Lemma 1.6</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.hamenstadt_quotient_strict_volume_gap" class="lean_decl">AlexandrovConsequences.hamenstadt_quotient_strict_volume_gap</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.hamenstadt_branched_cover_volume_gap" class="lean_decl">AlexandrovConsequences.hamenstadt_branched_cover_volume_gap</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    Let \(M\) be a closed hyperbolic \(N\)-manifold (\(N \ge 3\)) and \(X = M_d / \mathbb {Z}_d\) (\(d \ge 2\)) the orbifold quotient of a branched cover along a nonempty codimension-\(2\) locus \(\Sigma \) carrying a negatively curved metric (\(h(\overline{X}) \le N - 1\)). Then </p>
+<div class="displaymath" id="a0000000017">
+  \[  \mathcal{H}^N(M_d / \mathbb {Z}_d) {\gt} \operatorname {Vol}(M) \qquad \text{and} \qquad \operatorname {Vol}(M_d) {\gt} d \cdot \operatorname {Vol}(M).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000016">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Since \(\alpha = 2\pi /d {\lt} 2\pi \) forces \(\mathcal{S}_X \neq \emptyset \), the strictness and matched-entropy lemmas give \(\mathcal{H}^N(X) {\gt} \operatorname {Vol}(M)\), and multiplying by \(d \ge 2\) yields \(\operatorname {Vol}(M_d) = d\, \mathcal{H}^N(X) {\gt} d\, \operatorname {Vol}(M)\). </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def_satake_einstein_data">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">2.3</span>
+    <span class="definition_thmtitle">Satake Chern–Gauss–Bonnet and Einstein 4-Orbifold Package</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#def_satake_einstein_data">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.fourManifoldGaussBonnetConst" class="lean_decl">AlexandrovConsequences.fourManifoldGaussBonnetConst</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.fourManifoldGaussBonnetConst_pos" class="lean_decl">AlexandrovConsequences.fourManifoldGaussBonnetConst_pos</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.SatakeEinsteinFourOrbifoldData" class="lean_decl">AlexandrovConsequences.SatakeEinsteinFourOrbifoldData</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   With Chern–Gauss–Bonnet constant \(C_4 = 4\pi ^2/3 {\gt} 0\), a \(4\)-orbifold \((X, g_E)\) with \(\mathrm{Ric}(g_E) = -3 g_E\) satisfies \(h(\overline{X}) \le 3\) and Satake’s inequality \(\operatorname {Vol}(X, g_E) \le \frac{4\pi ^2}{3}\chi _{\mathrm{orb}}(X)\), while a hyperbolic \(4\)-manifold \(Y\) satisfies \(h(\widetilde{Y}) = 3\) and \(\operatorname {Vol}(Y) = \frac{4\pi ^2}{3}\chi (Y)\). </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_einstein_euler_obstruction">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">2.4</span>
+    <span class="corollary_thmtitle">Corollary 1.3(a)–(b): Einstein 4-Orbifold Euler Obstructions</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#cor_einstein_euler_obstruction">#</a>
+    
+    <a class="icon proof" href="sect0002.html#a0000000018"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#def_satake_einstein_data">Definition 2.3</a></li>
+          
+          <li><a href="sect0001.html#lem_strictness_and_doubling">Lemma 1.6</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.einstein_four_orbifold_euler_obstruction" class="lean_decl">AlexandrovConsequences.einstein_four_orbifold_euler_obstruction</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.einstein_four_orbifold_strict_euler_obstruction" class="lean_decl">AlexandrovConsequences.einstein_four_orbifold_strict_euler_obstruction</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    Under a continuous map \(f : X \to Y\) as above, \(\chi _{\mathrm{orb}}(X) \ge |\deg (f)|\, \chi (Y)\). Moreover, if \(\mathcal{S}_X \neq \emptyset \) and \(|\deg (f)| = [\pi _1(Y):f_*\pi _1(X)] \ge 1\) (forcing \(\deg (f) \neq 0\)), then strict inequality holds: \(\chi _{\mathrm{orb}}(X) {\gt} |\deg (f)|\, \chi (Y)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000018">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Cancel \(3^4 = 81\) via matched entropy \(h(\overline{X}) \le 3\) and cancel \(4\pi ^2/3 {\gt} 0\) in the Satake Chern–Gauss–Bonnet inequalities; nonempty \(\mathcal{S}_X\) upgrades \(\le \) to \({\lt}\). </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_gromov_thurston_euler_neg">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">2.5</span>
+    <span class="corollary_thmtitle">Corollary 1.3(c): Gromov–Thurston Branch-Locus Euler Sign</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#cor_gromov_thurston_euler_neg">#</a>
+    
+    <a class="icon proof" href="sect0002.html#a0000000019"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#def_branched_cone_angle">Definition 2.1</a></li>
+          
+          <li><a href="sect0002.html#cor_einstein_euler_obstruction">Corollary 2.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gromov_thurston_branch_locus_euler_neg" class="lean_decl">AlexandrovConsequences.gromov_thurston_branch_locus_euler_neg</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    For \(X = M_d / \mathbb {Z}_d\) (\(d \ge 2\)) branched along a closed surface \(\Sigma \subset M\), any Einstein metric \(\mathrm{Ric}(g_E) = -3 g_E\) on \(X\) forces \(\chi (\Sigma ) {\lt} 0\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000019">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Combining the orbifold Riemann–Hurwitz identity \(\chi _{\mathrm{orb}}(X) = \chi (M) - (1 - 1/d)\chi (\Sigma )\) with \(\chi _{\mathrm{orb}}(X) {\gt} \chi (M)\) and \(1 - 1/d {\gt} 0\) yields \(\chi (\Sigma ) {\lt} 0\). </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0001.html" title="Analytic Degree, Theorem 1.1, and Core Reduction Lemmas"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0003.html" title="Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

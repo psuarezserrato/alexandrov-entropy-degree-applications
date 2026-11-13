@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cone-Manifold and Orbifold Global Volume Minimality</title>
+<link rel="prev" href="sect0005.html" title="Gromov–Hausdorff Volume and Entropy-Volume Stability" />
+<link rel="up" href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Analytic Degree, Theorem 1.1, and Core Reduction Lemmas</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Branched Coverings and Einstein 4-Orbifold Obstructions</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Simplicial Volume and Boundary Volume Rigidity</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Gromov–Hausdorff Volume and Entropy-Volume Stability</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">Cone-Manifold and Orbifold Global Volume Minimality</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000007">6 Cone-Manifold and Orbifold Global Volume Minimality</h1>
+<p>This chapter formalizes Corollaries&#160;1.13–1.15 (<span class="ttfamily">ConeAndOrbifoldMinimality.lean</span>) and the unconditional octonionic and cone/orbifold master certificates (<span class="ttfamily">MasterCatalog.lean</span>). </p>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_cone_simplicial_volume">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">6.1</span>
+    <span class="corollary_thmtitle">Corollary 1.13: Simplicial Volume of Alexandrov Spaces and Cone-Manifolds</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#cor_cone_simplicial_volume">#</a>
+    
+    <a class="icon proof" href="sect0006.html#a0000000032"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#lem_strictness_and_doubling">Lemma 1.6</a></li>
+          
+          <li><a href="sect0001.html#thm_alexandrov_entropy_degree">Theorem 1.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_simplicial_volume_bound" class="lean_decl">AlexandrovConsequences.alexandrov_simplicial_volume_bound</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_homotopy_simplicial_rigidity" class="lean_decl">AlexandrovConsequences.alexandrov_homotopy_simplicial_rigidity</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.hyperbolic_cone_manifold_strict_simplicial_bound" class="lean_decl">AlexandrovConsequences.hyperbolic_cone_manifold_strict_simplicial_bound</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    Using Gromov–Thurston proportionality \(\operatorname {Vol}(Y) = v_N \| Y\| \), we have \(\mathcal{H}^N(X) \ge |\deg (f)| v_N \| Y\| \). For a homotopy equivalence, \(\mathcal{H}^N(X) \ge v_N \| X\| \) with equality iff \(X \cong Y\), and \(\mathcal{S}_X \neq \emptyset \) forces strict inequality \(\mathcal{H}^N(X) {\gt} v_N \| X\| \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000032">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Substitute \(\operatorname {Vol}(Y) = v_N \| Y\| \) into the matched-entropy (\(h_0 = N - 1\)) and strictness lemmas. </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_cone_manifold_volume">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">6.2</span>
+    <span class="corollary_thmtitle">Corollary 1.14: Global Cone-Metric Volume Minimality on Hyperbolic Manifolds</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#cor_cone_manifold_volume">#</a>
+    
+    <a class="icon proof" href="sect0006.html#a0000000033"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0006.html#cor_cone_simplicial_volume">Corollary 6.1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.hyperbolic_cone_metric_strict_volume_minimality" class="lean_decl">AlexandrovConsequences.hyperbolic_cone_metric_strict_volume_minimality</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    On any closed hyperbolic \(N\)-manifold \((M, g_{\mathrm{hyp}})\) (\(N \ge 3\)), every hyperbolic cone-metric \(g_{\mathrm{cone}}\) with cone angles \(\le 2\pi \) and nonempty singular locus satisfies \(\mathcal{H}^N(M, g_{\mathrm{cone}}) {\gt} \operatorname {Vol}(M, g_{\mathrm{hyp}})\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000033">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Apply Corollary&#160;1.13 to \(\operatorname {id}_M : (M, g_{\mathrm{cone}}) \to (M, g_{\mathrm{hyp}})\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem_selberg_cone_unwrap">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">6.3</span>
+    <span class="lemma_thmtitle">Selberg Finite Cover Cone-Angle Unwrapping</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#lem_selberg_cone_unwrap">#</a>
+    
+    <a class="icon proof" href="sect0006.html#a0000000034"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.unwrapped_cone_angle_le_two_pi_iff" class="lean_decl">AlexandrovConsequences.unwrapped_cone_angle_le_two_pi_iff</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.unwrapped_cone_angle_lt_two_pi_iff" class="lean_decl">AlexandrovConsequences.unwrapped_cone_angle_lt_two_pi_iff</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   Along a torsion-free Selberg finite cover \(p : M \to \mathcal{O}\) with local isotropy orders \(m_i \ge 1\), the lifted cone angle satisfies \(m_i \alpha _i \le 2\pi \iff \alpha _i \le 2\pi / m_i\) (and similarly for \({\lt}\)). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000034">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Multiply or divide both sides by \((m_i : \mathbb {R}) {\gt} 0\). </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_orbifold_volume_minimality">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">6.4</span>
+    <span class="corollary_thmtitle">Corollary 1.15: Orbifold Cone-Metric Global Volume Minimality</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#cor_orbifold_volume_minimality">#</a>
+    
+    <a class="icon proof" href="sect0006.html#a0000000035"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0006.html#lem_selberg_cone_unwrap">Lemma 6.3</a></li>
+          
+          <li><a href="sect0001.html#lem_strictness_and_doubling">Lemma 1.6</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.orbifold_cone_metric_volume_minimality" class="lean_decl">AlexandrovConsequences.orbifold_cone_metric_volume_minimality</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.orbifold_cone_metric_strict_volume_minimality" class="lean_decl">AlexandrovConsequences.orbifold_cone_metric_strict_volume_minimality</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    On a compact orientable negatively curved locally symmetric \(N\)-orbifold (\(\mathcal{O}, g_{\mathrm{sym}}\)) (\(N \ge 3\)), any singular cone-metric \(g_{\mathrm{cone}}\) with \(K_{\mathrm{reg}} \ge -\kappa _0^2\) and cone angles \(\alpha _i \le 2\pi / m_i\) satisfies \(\mathcal{H}^N(|\mathcal{O}|, g_{\mathrm{cone}}) \ge \operatorname {Vol}(\mathcal{O}, g_{\mathrm{sym}})\), with strict inequality whenever some \(\alpha _i {\lt} 2\pi / m_i\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000035">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Lift to a degree-\(d\) (\(d \ge 1\)) Selberg manifold cover \(M\), apply Theorem&#160;1.1 (or its strictness corollary when \(m_i \alpha _i {\lt} 2\pi \)) to \(\operatorname {id}_M\), and divide by \(d {\gt} 0\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_master_catalog">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">6.5</span>
+    <span class="theorem_thmtitle">Unconditional Octonionic (\(\mathbb {O}\mathbf{H}^2\)) and Master Cone/Orbifold Synthesis</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#thm_master_catalog">#</a>
+    
+    <a class="icon proof" href="sect0006.html#a0000000036"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#cor_gh_stability2">Corollary 5.3</a></li>
+          
+          <li><a href="sect0002.html#cor_hamenstadt_gen">Corollary 2.2</a></li>
+          
+          <li><a href="sect0006.html#cor_cone_manifold_volume">Corollary 6.2</a></li>
+          
+          <li><a href="sect0006.html#cor_orbifold_volume_minimality">Corollary 6.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_octonionic_entropy_degree_and_gh_stability" class="lean_decl">AlexandrovConsequences.alexandrov_octonionic_entropy_degree_and_gh_stability</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_hyperbolic_cone_and_orbifold_master_summary" class="lean_decl">AlexandrovConsequences.alexandrov_hyperbolic_cone_and_orbifold_master_summary</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    Composing <span class="ttfamily">BCG.octonionic_bcg_main_theorem</span> (\(N = 16, h_0 = 22\) on \(\mathbb {O}\mathbf{H}^2\) via Ruan’s 2024 repair) with Corollary&#160;1.12 gives unconditional octonionic entropy-degree rigidity and Gromov–Hausdorff stability; bundling Corollaries&#160;1.2, 1.14, and&#160;1.15 gives a unified global volume minimality certificate. </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000036">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Apply <span class="ttfamily">BCG.octonionic_bcg_main_theorem</span> to discharge the rank-one inequality at \((N, h_0) = (16, 22)\), feed it into <span class="ttfamily">gh_locally_symmetric_entropy_volume_stability</span>, and assemble the three strict volume minimality theorems. </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0005.html" title="Gromov–Hausdorff Volume and Entropy-Volume Stability"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori</title>
+<link rel="next" href="sect0004.html" title="Simplicial Volume and Boundary Volume Rigidity" />
+<link rel="prev" href="sect0002.html" title="Branched Coverings and Einstein 4-Orbifold Obstructions" />
+<link rel="up" href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Analytic Degree, Theorem 1.1, and Core Reduction Lemmas</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Branched Coverings and Einstein 4-Orbifold Obstructions</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Simplicial Volume and Boundary Volume Rigidity</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Gromov–Hausdorff Volume and Entropy-Volume Stability</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">Cone-Manifold and Orbifold Global Volume Minimality</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000004">3 Cone-Manifolds, Convex Cores, Weil–Petersson Bounds, and Mapping Tori</h1>
+<p>This chapter formalizes Corollaries&#160;1.4–1.8 of <span class="ttfamily">arXiv:2606.30403</span> in <span class="ttfamily">AlexandrovConsequences/ConvexCoresAndMappingTori.lean</span>. </p>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_cone_manifold">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">3.1</span>
+    <span class="corollary_thmtitle">Corollary 1.4: Cone-Manifolds with Cone Angles \(\le 2\pi \)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#cor_cone_manifold">#</a>
+    
+    <a class="icon proof" href="sect0003.html#a0000000020"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#lem_strictness_and_doubling">Lemma 1.6</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.cone_manifold_entropy_degree_bound" class="lean_decl">AlexandrovConsequences.cone_manifold_entropy_degree_bound</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    For a compact orientable \(N\)-cone-manifold \(Z\) (\(N \ge 3\)) with cone angles \(\le 2\pi \) and \(K_{\mathrm{reg}} \ge -1\) (so \(0 \le h(\overline{Z}) \le N - 1\)), every continuous map \(f : Z \to Y\) satisfies \(|\deg (f)|\, h(\widetilde{Y})^N \mathcal{H}^N(Y) \le (N-1)^N \mathcal{H}^N(Z)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000020">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Direct application of <span class="ttfamily">upper_entropy_bound_volume_inequality</span> with \(h_{\mathrm{upper}} = N - 1\). </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_manifold_boundary">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">3.2</span>
+    <span class="corollary_thmtitle">Corollary 1.5: Hyperbolic Manifolds with Locally Convex Boundary</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#cor_manifold_boundary">#</a>
+    
+    <a class="icon proof" href="sect0003.html#a0000000021"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#lem_strictness_and_doubling">Lemma 1.6</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.convex_manifold_boundary_volume_bound" class="lean_decl">AlexandrovConsequences.convex_manifold_boundary_volume_bound</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    For a compact oriented \(N\)-manifold \(Z\) (\(N \ge 3\)) with locally convex boundary and \(\mathrm{sec} \ge -1\) mapped with relative degree \(k \in \mathbb {Z}\) to a hyperbolic \(N\)-manifold \(Y_{\mathrm{geod}}\) with totally geodesic boundary, Perelman doubling \(DZ \to DY_{\mathrm{geod}}\) yields \(|k|\, \operatorname {Vol}(Y_{\mathrm{geod}}) \le \operatorname {Vol}(Z)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000021">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Since \(N \ge 3\), \(h_0 = N - 1 {\gt} 0\); apply <span class="ttfamily">metric_doubling_volume_degree_bound</span>. </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_bonahon_degree">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">3.3</span>
+    <span class="corollary_thmtitle">Corollary 1.6: Geometrically Finite Hyperbolic 3-Manifold Convex Cores</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#cor_bonahon_degree">#</a>
+    
+    <a class="icon proof" href="sect0003.html#a0000000022"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#cor_manifold_boundary">Corollary 3.2</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.geometrically_finite_convex_core_volume_bound" class="lean_decl">AlexandrovConsequences.geometrically_finite_convex_core_volume_bound</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.geometrically_finite_convex_core_volume_bound_limit" class="lean_decl">AlexandrovConsequences.geometrically_finite_convex_core_volume_bound_limit</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    For convex cores \(C_M \to C_{M_g}\) of geometrically finite hyperbolic \(3\)-manifolds (\(N = 3, h_0 = 2\)) of relative degree \(k\), both the doubled core and smooth \(r\)-neighborhood approximation limit yield \(|k|\, \operatorname {Vol}(C_{M_g}) \le \operatorname {Vol}(C_M)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000022">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Specialize Corollary&#160;1.5 to \(N = 3\) and pass to the limit \(\operatorname {Vol}(Z_{r_i}) \to \operatorname {Vol}(C_M)\) via <span class="ttfamily">ge_of_tendsto</span>. </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_unified_volume">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">3.4</span>
+    <span class="corollary_thmtitle">Corollary 1.7: Unified Degree and Weil–Petersson Core Volume Bound</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#cor_unified_volume">#</a>
+    
+    <a class="icon proof" href="sect0003.html#a0000000023"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#cor_bonahon_degree">Corollary 3.3</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.unified_degree_weil_petersson_core_bound" class="lean_decl">AlexandrovConsequences.unified_degree_weil_petersson_core_bound</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    Combining Corollary&#160;1.6 for \(f \circ h : M'_{\mathrm{geod}} \to M_{\mathrm{geod}}\) (\(|\deg (h)| = 1\)) with the Bridgeman–Brock–Bromberg comparison gives </p>
+<div class="displaymath" id="a0000000024">
+  \[  |k|\, \operatorname {Vol}(C_{M_{\mathrm{geod}}}) + A(\partial Z')\, d_{\mathrm{WP}}(\partial _c M', \partial _c M'_{\mathrm{geod}}) - \delta \le \operatorname {Vol}(C_{M'}).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000023">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Degree multiplicativity gives \(|\deg (f \circ h)| = |k|\), and adding the Weil–Petersson comparison \(\operatorname {Vol}(C_{M'}) - \operatorname {Vol}(C_{M'_{\mathrm{geod}}}) \ge A(\partial Z')\, d_{\mathrm{WP}} - \delta \) completes the proof. </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def_infimal_convex_volume">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">3.5</span>
+    <span class="definition_thmtitle">Infimal Convex-Hyperbolic Volume</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#def_infimal_convex_volume">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.infimalConvexHyperbolicVolume" class="lean_decl">AlexandrovConsequences.infimalConvexHyperbolicVolume</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   For a parameterized family \(S\) of convex hyperbolic metrics on the compactified end-periodic mapping torus \(\overline{M}_\phi \), define \(\underline{\operatorname {Vol}}(\overline{M}_\phi ) := \inf _{g \in S} \operatorname {Vol}(\overline{M}_\phi , g)\). </p>
+
+  </div>
+</div>
+<div class="corollary_thmwrapper theorem-style-plain" id="cor_translation_length">
+  <div class="corollary_thmheading">
+    <span class="corollary_thmcaption">
+    Corollary
+    </span>
+    <span class="corollary_thmlabel">3.6</span>
+    <span class="corollary_thmtitle">Corollary 1.8: Mapping-Class Translation Length Lower Bound</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#cor_translation_length">#</a>
+    
+    <a class="icon proof" href="sect0003.html#a0000000025"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#cor_manifold_boundary">Corollary 3.2</a></li>
+          
+          <li><a href="sect0003.html#def_infimal_convex_volume">Definition 3.5</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.mapping_torus_infimal_volume_bound" class="lean_decl">AlexandrovConsequences.mapping_torus_infimal_volume_bound</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.end_periodic_translation_length_bound" class="lean_decl">AlexandrovConsequences.end_periodic_translation_length_bound</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="corollary_thmcontent">
+  <p>    On a nonempty family \(S\) of convex hyperbolic metrics on \(\overline{M}_\phi \), Corollary&#160;1.5 holds uniformly, giving \(|k|\, \operatorname {Vol}(Y) \le \underline{\operatorname {Vol}}(\overline{M}_\phi )\), and combining with \(\underline{\operatorname {Vol}}(\overline{M}_\phi ) \le V_{\mathrm{oct}}\, \tau (\phi )\) (\(V_{\mathrm{oct}} {\gt} 0\)) yields </p>
+<div class="displaymath" id="a0000000026">
+  \[  \frac{|k|}{V_{\mathrm{oct}}}\, \operatorname {Vol}(Y) \le \tau (\phi ).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000025">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Apply <span class="ttfamily">le_csInf</span> over the nonempty image <span class="ttfamily">vol ” S</span>, then divide by \(V_{\mathrm{oct}} {\gt} 0\). </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0002.html" title="Branched Coverings and Einstein 4-Orbifold Obstructions"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0004.html" title="Simplicial Volume and Boundary Volume Rigidity"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

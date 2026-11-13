@@ -1,0 +1,437 @@
+\chapter{Analytic Degree, Theorem 1.1, and Core Reduction Lemmas}
+
+This chapter establishes the degree-theoretic foundations (\S5 of \texttt{arXiv:2606.30403}),
+bridges the main theorem of \texttt{arXiv:2606.30403} (Theorem~1.1) and Remark~1.15 to the
+upstream \texttt{RCDEntropyDegree.RCD} library, and isolates the reusable strictness and metric-doubling
+meta-lemmas in \texttt{AlexandrovConsequences/Foundation.lean}.
+
+\begin{definition}[Analytic Degree and Mitsuishi Comparison Bridge]
+\label{def_analytic_degree}
+\lean{AlexandrovConsequences.analyticDegree, AlexandrovConsequences.MitsuishiDegreeBridge}
+\leanok
+Let $(X, \mathsf{d}, \mu_X)$ be a finite-measure space and $Y$ a closed oriented Riemannian
+$N$-manifold with volume $\Vol(Y) > 0$. The \emph{analytic degree} of a map $f : X \to Y$ with
+signed metric Jacobian $\mathrm{sJac}_f$ is
+\[
+  \deg_{\mathrm{an}}(f) := \frac{1}{\Vol(Y)} \int_X \mathrm{sJac}_f(x)\,d\mu_X(x).
+\]
+A \emph{Mitsuishi degree bridge} packages $Y$ together with a fundamental current, singular
+homology degree $\deg_{\mathrm{top}}(f)$, current pushforward degree $\deg_{\mathrm{curr}}(f)$,
+and the naturality identity $\deg_{\mathrm{curr}}(f) = \deg_{\mathrm{top}}(f)$ induced by
+Mitsuishi's comparison isomorphism $\Psi : H_N^{\mathbf{I}}(X) \xrightarrow{\sim} H_N(X;\Z)$.
+\end{definition}
+
+\begin{lemma}[Analytic Degree Integral Bound]
+\label{lem_analytic_degree_integral_bound}
+\lean{AlexandrovConsequences.abs_analyticDegree_mul_vol_le_integral_abs}
+\leanok
+\uses{def_analytic_degree}
+For any integrable signed metric Jacobian $\mathrm{sJac}_f$ and $\Vol(Y) > 0$,
+$|\deg_{\mathrm{an}}(f)|\,\Vol(Y) \le \int_X |\mathrm{sJac}_f(x)|\,d\mu_X(x)$.
+\end{lemma}
+\begin{proof}\leanok
+Cancel $\Vol(Y)^{-1} \cdot \Vol(Y) = 1$ using $\Vol(Y) > 0$ and apply the triangle inequality
+for the Bochner integral.
+\end{proof}
+
+\begin{theorem}[Analytic Degree Equals Topological Degree on Class $\mathcal{S}$ Spaces]
+\label{thm_analytic_eq_topological_degree}
+\lean{AlexandrovConsequences.analytic_eq_topological_degree, AlexandrovConsequences.ClassSSpace, AlexandrovConsequences.s_space_analytic_eq_topological_degree}
+\leanok
+\uses{def_analytic_degree, lem_analytic_degree_integral_bound}
+On any class $\mathcal{S}$ space $X$ (compact orientable $N$-metric space with
+$\mathcal{H}^{N-1}(\mathcal{S}_X) = 0$ and Mitsuishi comparison isomorphism $\Psi$), every
+Lipschitz map $f : X \to Y$ satisfies Kirchheim's signed area formula and hence
+\[
+  \deg_{\mathrm{an}}(f) = \deg_{\mathrm{top}}(f).
+\]
+\end{theorem}
+\begin{proof}\leanok
+Substituting Kirchheim's signed area identity $\int_X \mathrm{sJac}_f\,d\mathcal{H}^N =
+\deg_{\mathrm{curr}}(f)\,\mathcal{H}^N(Y)$ into $\deg_{\mathrm{an}}(f)$ cancels $\mathcal{H}^N(Y)$,
+and Mitsuishi naturality yields $\deg_{\mathrm{top}}(f)$.
+\end{proof}
+
+\begin{theorem}[Theorem 1.1: Alexandrov Entropy-Degree Theorem and Smoothness Rigidity]
+\label{thm_alexandrov_entropy_degree}
+\lean{AlexandrovConsequences.alexandrov_entropy_degree_inequality_continuous, AlexandrovConsequences.alexandrov_entropy_degree_rigidity}
+\leanok
+\uses{thm_analytic_eq_topological_degree}
+Let $X$ be a closed orientable $N$-dimensional Alexandrov space without boundary
+($\mathrm{curv} \ge \kappa$) and $f : X \to Y$ a continuous map into a closed orientable
+negatively curved locally symmetric $N$-manifold $Y$. Via Lipschitz approximation
+$f_{\mathrm{lip}} \simeq f$,
+\[
+  |\deg(f)| \, h(\widetilde{Y})^N \, \mathcal{H}^N(Y) \le h(\overline{X})^N \, \mathcal{H}^N(X).
+\]
+Furthermore, if equality holds together with $|\deg(f)| = [\pi_1(Y) : f_*\pi_1(X)] \ge 1$, then
+the rescaled limit map $\hat{F}_\infty : (X, c\,\mathsf{d}_X) \to \widehat{Y}$
+($c = h(\overline{X})/h(\widetilde{Y}) > 0$) is a surjective global homothety onto the
+degree-$|\deg(f)|$ cover $\widehat{Y}$, and hence $\mathcal{S}(X) = \emptyset$.
+\end{theorem}
+\begin{proof}\leanok
+Homotopy invariance equates $\deg(f) = \deg(f_{\mathrm{lip}})$ in
+\texttt{RCDEntropyDegree.RCD.alexandrov\_entropy\_degree\_inequality}, and equality rigidity transfers smoothness
+from $\widehat{Y}$ via \texttt{RCDEntropyDegree.RCD.rcd\_entropy\_degree\_equality\_rigidity}.
+\end{proof}
+
+\begin{lemma}[Remark 1.15: Necessity of the Index Condition and Connected-Sum Counterexample]
+\label{lem_remark_index_necessity}
+\lean{AlexandrovConsequences.abs_degree_eq_index_iff_lift_degree_one, AlexandrovConsequences.connected_sum_rigidity_counterexample}
+\leanok
+\uses{thm_alexandrov_entropy_degree}
+In the covering factorization $|\deg(f)| = |\deg(\hat{f})| \cdot [\pi_1(Y) : f_*\pi_1(X)]$ with
+$\deg(f) \neq 0$, we have $|\deg(f)| = [\pi_1(Y) : f_*\pi_1(X)] \iff |\deg(\hat{f})| = 1$.
+For the pinch map $Y \# Y \to Y \vee Y \to Y$ ($b_1(Y) \ge 1$), $|\deg(f)| = 2 > 1 = [\pi_1(Y):f_*\pi_1(X)]$
+and $b_1(Y \# Y) = 2 b_1(Y) \neq b_1(Y)$.
+\end{lemma}
+\begin{proof}\leanok
+Cancel the positive integer index $[\pi_1(Y) : f_*\pi_1(X)] \ge 1$ in the degree factorization, and
+compare $2 b_1(Y) \neq b_1(Y)$ for $b_1(Y) \ge 1$.
+\end{proof}
+
+\begin{lemma}[Strictness, Entropy Bounds, and Metric Doubling Cancellation]
+\label{lem_strictness_and_doubling}
+\lean{AlexandrovConsequences.strict_entropy_volume_of_singularSet_nonempty, AlexandrovConsequences.upper_entropy_bound_volume_inequality, AlexandrovConsequences.same_entropy_volume_degree_bound, AlexandrovConsequences.same_entropy_strict_volume_degree_bound, AlexandrovConsequences.metric_doubling_volume_degree_bound}
+\leanok
+\uses{thm_alexandrov_entropy_degree}
+\begin{enumerate}
+\item Whenever $\mathcal{S}_X \neq \emptyset$, $|\deg(f)| = [\pi_1(Y):f_*\pi_1(X)] \ge 1$, and
+equality forces $\mathcal{S}_X = \emptyset$, the entropy-volume inequality is strict ($<$).
+\item Whenever $0 \le h(\overline{X}) \le h_0$ ($h_0 > 0$) and $h(\widetilde{Y}) = h_0$, Theorem~1.1
+yields $|\deg(f)|\Vol(Y) \le \mathcal{H}^N(X)$ (and $<$ when strict).
+\item Under Perelman/Petrunin doubling $\mathcal{H}^N(DZ) = 2\mathcal{H}^N(Z)$ and
+$\mathcal{H}^N(DY) = 2\mathcal{H}^N(Y)$, cancelling $2 h_0^N > 0$ gives $|k|\mathcal{H}^N(Y) \le \mathcal{H}^N(Z)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}\leanok
+Any equality contradicts $\mathcal{S}_X \neq \emptyset$; monotonicity of $x \mapsto x^N$ on
+$[0,\infty)$ and positivity of $h_0^N$ and $2 h_0^N$ give the volume and doubling bounds.
+\end{proof}
+
+\chapter{Branched Coverings and Einstein 4-Orbifold Obstructions}
+
+This chapter formalizes Corollaries~1.2 and~1.3 of \texttt{arXiv:2606.30403} in
+\texttt{AlexandrovConsequences/BranchedCoversEinstein.lean}.
+
+\begin{definition}[Cyclic Branched Cover Cone Angle and Density Drop]
+\label{def_branched_cone_angle}
+\lean{AlexandrovConsequences.branchedConeAngle, AlexandrovConsequences.branchedCoverConeAngle_bounds, AlexandrovConsequences.not_mem_regularSet_of_coneAngle_lt_two_pi, AlexandrovConsequences.branchedQuotient_singularSet_nonempty}
+\leanok
+For a $d$-fold cyclic branched cover $M_d \to M$ ($d \ge 2$), the quotient $X = M_d / \Z_d$
+carries normal cone angle $\alpha = 2\pi / d \le \pi < 2\pi$ along the branch locus $\Sigma$,
+giving Bishop--Gromov density $\theta_N(x_0) = \alpha/(2\pi) < 1$ and hence
+$\mathcal{S}_X \neq \emptyset$.
+\end{definition}
+
+\begin{corollary}[Corollary 1.2: Branched Coverings and Hamenst\"adt's Question]
+\label{cor_hamenstadt_gen}
+\lean{AlexandrovConsequences.hamenstadt_quotient_strict_volume_gap, AlexandrovConsequences.hamenstadt_branched_cover_volume_gap}
+\leanok
+\uses{def_branched_cone_angle, lem_strictness_and_doubling}
+Let $M$ be a closed hyperbolic $N$-manifold ($N \ge 3$) and $X = M_d / \Z_d$ ($d \ge 2$) the
+orbifold quotient of a branched cover along a nonempty codimension-$2$ locus $\Sigma$ carrying a
+negatively curved metric ($h(\overline{X}) \le N - 1$). Then
+\[
+  \mathcal{H}^N(M_d / \Z_d) > \Vol(M) \qquad \text{and} \qquad \Vol(M_d) > d \cdot \Vol(M).
+\]
+\end{corollary}
+\begin{proof}\leanok
+Since $\alpha = 2\pi/d < 2\pi$ forces $\mathcal{S}_X \neq \emptyset$, the strictness and
+matched-entropy lemmas give $\mathcal{H}^N(X) > \Vol(M)$, and multiplying by $d \ge 2$ yields
+$\Vol(M_d) = d\,\mathcal{H}^N(X) > d\,\Vol(M)$.
+\end{proof}
+
+\begin{definition}[Satake Chern--Gauss--Bonnet and Einstein 4-Orbifold Package]
+\label{def_satake_einstein_data}
+\lean{AlexandrovConsequences.fourManifoldGaussBonnetConst, AlexandrovConsequences.fourManifoldGaussBonnetConst_pos, AlexandrovConsequences.SatakeEinsteinFourOrbifoldData}
+\leanok
+With Chern--Gauss--Bonnet constant $C_4 = 4\pi^2/3 > 0$, a $4$-orbifold $(X, g_E)$ with
+$\mathrm{Ric}(g_E) = -3 g_E$ satisfies $h(\overline{X}) \le 3$ and Satake's inequality
+$\Vol(X, g_E) \le \frac{4\pi^2}{3}\chi_{\mathrm{orb}}(X)$, while a hyperbolic $4$-manifold $Y$
+satisfies $h(\widetilde{Y}) = 3$ and $\Vol(Y) = \frac{4\pi^2}{3}\chi(Y)$.
+\end{definition}
+
+\begin{corollary}[Corollary 1.3(a)--(b): Einstein 4-Orbifold Euler Obstructions]
+\label{cor_einstein_euler_obstruction}
+\lean{AlexandrovConsequences.einstein_four_orbifold_euler_obstruction, AlexandrovConsequences.einstein_four_orbifold_strict_euler_obstruction}
+\leanok
+\uses{def_satake_einstein_data, lem_strictness_and_doubling}
+Under a continuous map $f : X \to Y$ as above, $\chi_{\mathrm{orb}}(X) \ge |\deg(f)|\,\chi(Y)$.
+Moreover, if $\mathcal{S}_X \neq \emptyset$ and $|\deg(f)| = [\pi_1(Y):f_*\pi_1(X)] \ge 1$
+(forcing $\deg(f) \neq 0$), then strict inequality holds: $\chi_{\mathrm{orb}}(X) > |\deg(f)|\,\chi(Y)$.
+\end{corollary}
+\begin{proof}\leanok
+Cancel $3^4 = 81$ via matched entropy $h(\overline{X}) \le 3$ and cancel $4\pi^2/3 > 0$ in the
+Satake Chern--Gauss--Bonnet inequalities; nonempty $\mathcal{S}_X$ upgrades $\le$ to $<$.
+\end{proof}
+
+\begin{corollary}[Corollary 1.3(c): Gromov--Thurston Branch-Locus Euler Sign]
+\label{cor_gromov_thurston_euler_neg}
+\lean{AlexandrovConsequences.gromov_thurston_branch_locus_euler_neg}
+\leanok
+\uses{def_branched_cone_angle, cor_einstein_euler_obstruction}
+For $X = M_d / \Z_d$ ($d \ge 2$) branched along a closed surface $\Sigma \subset M$, any Einstein
+metric $\mathrm{Ric}(g_E) = -3 g_E$ on $X$ forces $\chi(\Sigma) < 0$.
+\end{corollary}
+\begin{proof}\leanok
+Combining the orbifold Riemann--Hurwitz identity $\chi_{\mathrm{orb}}(X) = \chi(M) - (1 - 1/d)\chi(\Sigma)$
+with $\chi_{\mathrm{orb}}(X) > \chi(M)$ and $1 - 1/d > 0$ yields $\chi(\Sigma) < 0$.
+\end{proof}
+
+\chapter{Cone-Manifolds, Convex Cores, Weil--Petersson Bounds, and Mapping Tori}
+
+This chapter formalizes Corollaries~1.4--1.8 of \texttt{arXiv:2606.30403} in
+\texttt{AlexandrovConsequences/ConvexCoresAndMappingTori.lean}.
+
+\begin{corollary}[Corollary 1.4: Cone-Manifolds with Cone Angles $\le 2\pi$]
+\label{cor_cone_manifold}
+\lean{AlexandrovConsequences.cone_manifold_entropy_degree_bound}
+\leanok
+\uses{lem_strictness_and_doubling}
+For a compact orientable $N$-cone-manifold $Z$ ($N \ge 3$) with cone angles $\le 2\pi$ and
+$K_{\mathrm{reg}} \ge -1$ (so $0 \le h(\overline{Z}) \le N - 1$), every continuous map $f : Z \to Y$
+satisfies $|\deg(f)|\,h(\widetilde{Y})^N \mathcal{H}^N(Y) \le (N-1)^N \mathcal{H}^N(Z)$.
+\end{corollary}
+\begin{proof}\leanok
+Direct application of \texttt{upper\_entropy\_bound\_volume\_inequality} with $h_{\mathrm{upper}} = N - 1$.
+\end{proof}
+
+\begin{corollary}[Corollary 1.5: Hyperbolic Manifolds with Locally Convex Boundary]
+\label{cor_manifold_boundary}
+\lean{AlexandrovConsequences.convex_manifold_boundary_volume_bound}
+\leanok
+\uses{lem_strictness_and_doubling}
+For a compact oriented $N$-manifold $Z$ ($N \ge 3$) with locally convex boundary and
+$\mathrm{sec} \ge -1$ mapped with relative degree $k \in \Z$ to a hyperbolic $N$-manifold
+$Y_{\mathrm{geod}}$ with totally geodesic boundary, Perelman doubling $DZ \to DY_{\mathrm{geod}}$
+yields $|k|\,\Vol(Y_{\mathrm{geod}}) \le \Vol(Z)$.
+\end{corollary}
+\begin{proof}\leanok
+Since $N \ge 3$, $h_0 = N - 1 > 0$; apply \texttt{metric\_doubling\_volume\_degree\_bound}.
+\end{proof}
+
+\begin{corollary}[Corollary 1.6: Geometrically Finite Hyperbolic 3-Manifold Convex Cores]
+\label{cor_bonahon_degree}
+\lean{AlexandrovConsequences.geometrically_finite_convex_core_volume_bound, AlexandrovConsequences.geometrically_finite_convex_core_volume_bound_limit}
+\leanok
+\uses{cor_manifold_boundary}
+For convex cores $C_M \to C_{M_g}$ of geometrically finite hyperbolic $3$-manifolds ($N = 3, h_0 = 2$)
+of relative degree $k$, both the doubled core and smooth $r$-neighborhood approximation limit yield
+$|k|\,\Vol(C_{M_g}) \le \Vol(C_M)$.
+\end{corollary}
+\begin{proof}\leanok
+Specialize Corollary~1.5 to $N = 3$ and pass to the limit $\Vol(Z_{r_i}) \to \Vol(C_M)$ via
+\texttt{ge\_of\_tendsto}.
+\end{proof}
+
+\begin{corollary}[Corollary 1.7: Unified Degree and Weil--Petersson Core Volume Bound]
+\label{cor_unified_volume}
+\lean{AlexandrovConsequences.unified_degree_weil_petersson_core_bound}
+\leanok
+\uses{cor_bonahon_degree}
+Combining Corollary~1.6 for $f \circ h : M'_{\mathrm{geod}} \to M_{\mathrm{geod}}$ ($|\deg(h)| = 1$)
+with the Bridgeman--Brock--Bromberg comparison gives
+\[
+  |k|\,\Vol(C_{M_{\mathrm{geod}}}) + A(\partial Z')\,d_{\mathrm{WP}}(\partial_c M', \partial_c M'_{\mathrm{geod}}) - \delta \le \Vol(C_{M'}).
+\]
+\end{corollary}
+\begin{proof}\leanok
+Degree multiplicativity gives $|\deg(f \circ h)| = |k|$, and adding the Weil--Petersson
+comparison $\Vol(C_{M'}) - \Vol(C_{M'_{\mathrm{geod}}}) \ge A(\partial Z')\,d_{\mathrm{WP}} - \delta$
+completes the proof.
+\end{proof}
+
+\begin{definition}[Infimal Convex-Hyperbolic Volume]
+\label{def_infimal_convex_volume}
+\lean{AlexandrovConsequences.infimalConvexHyperbolicVolume}
+\leanok
+For a parameterized family $S$ of convex hyperbolic metrics on the compactified end-periodic
+mapping torus $\overline{M}_\phi$, define $\underline{\Vol}(\overline{M}_\phi) := \inf_{g \in S} \Vol(\overline{M}_\phi, g)$.
+\end{definition}
+
+\begin{corollary}[Corollary 1.8: Mapping-Class Translation Length Lower Bound]
+\label{cor_translation_length}
+\lean{AlexandrovConsequences.mapping_torus_infimal_volume_bound, AlexandrovConsequences.end_periodic_translation_length_bound}
+\leanok
+\uses{cor_manifold_boundary, def_infimal_convex_volume}
+On a nonempty family $S$ of convex hyperbolic metrics on $\overline{M}_\phi$, Corollary~1.5 holds
+uniformly, giving $|k|\,\Vol(Y) \le \underline{\Vol}(\overline{M}_\phi)$, and combining with
+$\underline{\Vol}(\overline{M}_\phi) \le V_{\mathrm{oct}}\,\tau(\phi)$ ($V_{\mathrm{oct}} > 0$) yields
+\[
+  \frac{|k|}{V_{\mathrm{oct}}}\,\Vol(Y) \le \tau(\phi).
+\]
+\end{corollary}
+\begin{proof}\leanok
+Apply \texttt{le\_csInf} over the nonempty image \texttt{vol '' S}, then divide by $V_{\mathrm{oct}} > 0$.
+\end{proof}
+
+\chapter{Simplicial Volume and Boundary Volume Rigidity}
+
+This chapter formalizes Theorems~1.9 and~1.10 of \texttt{arXiv:2606.30403} in
+\texttt{AlexandrovConsequences/SimplicialAndBoundaryRigidity.lean}.
+
+\begin{definition}[Gromov's Simplicial Volume]
+\label{def_gromov_simplicial_volume}
+\lean{AlexandrovConsequences.gromovSimplicialVolume, AlexandrovConsequences.gromovSimplicialVolume_nonneg}
+\leanok
+Given fundamental-cycle representatives \texttt{Cycles} with $\ell^1$-norm functional \texttt{l1Norm},
+$\|DM\| := \inf_{c \in \mathrm{Cycles}} \|c\|_1 \ge 0$.
+\end{definition}
+
+\begin{theorem}[Theorem 1.9: Acylindrical Convex-Core Bound via Storm's Theorem]
+\label{thm_simplicial_volume}
+\lean{AlexandrovConsequences.acylindrical_convex_core_simplicial_bound_scaled, AlexandrovConsequences.acylindrical_convex_core_simplicial_bound}
+\leanok
+\uses{def_gromov_simplicial_volume, lem_strictness_and_doubling}
+For a relative degree-$k$ map $f : (Z, \partial Z) \to (M, \partial M)$ into a compact acylindrical
+$3$-manifold $M$ with Thurston geodesic-boundary model $\psi : M \to M_{\mathrm{geod}}$
+($|\deg(\psi)| = 1$), Perelman doubling of $C_Z$ and Storm's identity $\Vol(DC_{M_{\mathrm{geod}}}) = \|DM\|$
+(or $v_3 \|DM\|$) yield $\Vol(C_Z) \ge \frac{|k|}{2}\,\|DM\|$.
+\end{theorem}
+\begin{proof}\leanok
+Use $|\deg(\psi \circ f)| = |k|$ and matched entropy $h_0 = 2$ on the doubles, then divide by $2$.
+\end{proof}
+
+\begin{theorem}[Theorem 1.10: Boundary Volume Inequality and Rigidity]
+\label{thm_boundary_rigidity}
+\lean{AlexandrovConsequences.alexandrov_boundary_volume_inequality, AlexandrovConsequences.alexandrov_boundary_volume_rigidity}
+\leanok
+\uses{cor_manifold_boundary, thm_alexandrov_entropy_degree}
+For a compact orientable $N$-dimensional ($N \ge 3$) $\mathrm{Alex}(-1)$ space $X$ with boundary
+mapped with degree $k \neq 0$ to a compact hyperbolic $N$-manifold $Y$ with totally geodesic
+boundary, $\Vol(X) \ge |k|\,\Vol(Y)$. Moreover, if $\Vol(X) = |k|\,\Vol(Y)$ and
+$|k| = [\pi_1(DY) : (Df)_* \pi_1(DX)]$, then $h(\overline{DX}) = N - 1$ (homothety factor $c = 1$),
+$\mathcal{S}_{DX} = \emptyset$, $DX$ is globally isometric to the degree-$|k|$ cover $\widehat{DY}$,
+$\partial X = \mathrm{Fix}(\iota_{DX})$ is totally geodesic, and $|k| = 1$ implies $X \cong Y$.
+\end{theorem}
+\begin{proof}\leanok
+Volume equality $\Vol(DX) = |k|\,\Vol(DY) > 0$ together with Theorem~1.1 sandwiches
+$(N-1)^N \le h(\overline{DX})^N \le (N-1)^N$, forcing $h(\overline{DX}) = N - 1$ by strict
+monotonicity of $x \mapsto x^N$ on $[0, \infty)$ and triggering unrescaled ($c = 1$) rigidity.
+\end{proof}
+
+\chapter{Gromov--Hausdorff Volume and Entropy-Volume Stability}
+
+This chapter formalizes Corollaries~1.11 and~1.12 of \texttt{arXiv:2606.30403} in
+\texttt{AlexandrovConsequences/GromovHausdorffStability.lean}.
+
+\begin{lemma}[Reviron Entropy Lower-Semicontinuity Product Limit]
+\label{lem_reviron_entropy_lsc}
+\lean{AlexandrovConsequences.limit_entropy_pow_le_of_eventually_add_eps}
+\leanok
+If $\Vol(M_i) \to V_X > 0$, $h(\widetilde{M}_i)^N \Vol(M_i) \to L$, and
+$\forall \varepsilon > 0, \forall^\infty i,\, h_{\mathrm{lim}} \le h(\widetilde{M}_i) + \varepsilon$,
+then $h_{\mathrm{lim}}^N V_X \le L$.
+\end{lemma}
+\begin{proof}\leanok
+Since $V_X > 0$, $h(\widetilde{M}_i)^N \to L / V_X$. For each $\varepsilon > 0$, eventually
+$(\max(h_{\mathrm{lim}} - \varepsilon, 0))^N \le h(\widetilde{M}_i)^N$, so taking $i \to \infty$
+and then $\varepsilon \to 0^+$ yields $h_{\mathrm{lim}}^N \le L / V_X$.
+\end{proof}
+
+\begin{corollary}[Corollary 1.11: Gromov--Hausdorff Stability of Hyperbolic Volume]
+\label{cor_gh_stability}
+\lean{AlexandrovConsequences.gh_hyperbolic_volume_stability}
+\leanok
+\uses{thm_alexandrov_entropy_degree}
+If closed $N$-manifolds $(M_i)$ ($N \ge 3$, $\mathrm{sec} \ge -1$) converge in Gromov--Hausdorff
+distance to $(X, \mathsf{d})$ with $\Vol(M_i) \to k\,\Vol(Y)$ ($k \ge 1$) and Perelman stability
+transfers $|\deg| = \mathrm{index} = k$, then $\Vol(X) = k\,\Vol(Y)$, $h(\widetilde{X}) = N - 1$,
+$\mathcal{S}_X = \emptyset$, and $X$ is globally isometric to the smooth degree-$k$ hyperbolic cover
+of $Y$ ($Y$ itself when $k = 1$).
+\end{corollary}
+\begin{proof}\leanok
+Uniqueness of Hausdorff limits equates $\Vol(X) = k\,\Vol(Y)$; Perelman stability transfers
+degree/index $k$; and Theorem~1.1 squeezes $h(\widetilde{X}) = N - 1$, triggering unrescaled rigidity.
+\end{proof}
+
+\begin{corollary}[Corollary 1.12: Locally Symmetric GH Entropy-Volume Stability]
+\label{cor_gh_stability2}
+\lean{AlexandrovConsequences.gh_locally_symmetric_entropy_volume_stability}
+\leanok
+\uses{lem_reviron_entropy_lsc, thm_alexandrov_entropy_degree}
+For any closed orientable negatively curved locally symmetric $N$-manifold $Y$ ($N \ge 3$), if
+$h(\widetilde{M}_i)^N \Vol(M_i) \to k\,h(\widetilde{Y})^N \Vol(Y)$ ($k \ge 1$), $\Vol(M_i) \to \Vol(X) > 0$,
+and Reviron's entropy lower-semicontinuity holds, then $h(\widetilde{X})^N \Vol(X) = k\,h(\widetilde{Y})^N \Vol(Y)$,
+$h(\widetilde{X}) > 0$, $\mathcal{S}_X = \emptyset$, and $(X, (h(\widetilde{X})/h(\widetilde{Y}))\mathsf{d}_X)$
+is globally isometric to the smooth degree-$k$ cover $\widehat{Y}$.
+\end{corollary}
+\begin{proof}\leanok
+Combine Lemma~\ref{lem_reviron_entropy_lsc} ($\le$) with Theorem~1.1 ($\ge$) to obtain equality,
+extract $h(\widetilde{X}) > 0$, and apply Theorem~1.1 equality rigidity.
+\end{proof}
+
+\chapter{Cone-Manifold and Orbifold Global Volume Minimality}
+
+This chapter formalizes Corollaries~1.13--1.15 (\texttt{ConeAndOrbifoldMinimality.lean}) and the
+unconditional octonionic and cone/orbifold master certificates (\texttt{MasterCatalog.lean}).
+
+\begin{corollary}[Corollary 1.13: Simplicial Volume of Alexandrov Spaces and Cone-Manifolds]
+\label{cor_cone_simplicial_volume}
+\lean{AlexandrovConsequences.alexandrov_simplicial_volume_bound, AlexandrovConsequences.alexandrov_homotopy_simplicial_rigidity, AlexandrovConsequences.hyperbolic_cone_manifold_strict_simplicial_bound}
+\leanok
+\uses{lem_strictness_and_doubling, thm_alexandrov_entropy_degree}
+Using Gromov--Thurston proportionality $\Vol(Y) = v_N \|Y\|$, we have $\mathcal{H}^N(X) \ge |\deg(f)| v_N \|Y\|$.
+For a homotopy equivalence, $\mathcal{H}^N(X) \ge v_N \|X\|$ with equality iff $X \cong Y$, and
+$\mathcal{S}_X \neq \emptyset$ forces strict inequality $\mathcal{H}^N(X) > v_N \|X\|$.
+\end{corollary}
+\begin{proof}\leanok
+Substitute $\Vol(Y) = v_N \|Y\|$ into the matched-entropy ($h_0 = N - 1$) and strictness lemmas.
+\end{proof}
+
+\begin{corollary}[Corollary 1.14: Global Cone-Metric Volume Minimality on Hyperbolic Manifolds]
+\label{cor_cone_manifold_volume}
+\lean{AlexandrovConsequences.hyperbolic_cone_metric_strict_volume_minimality}
+\leanok
+\uses{cor_cone_simplicial_volume}
+On any closed hyperbolic $N$-manifold $(M, g_{\mathrm{hyp}})$ ($N \ge 3$), every hyperbolic cone-metric
+$g_{\mathrm{cone}}$ with cone angles $\le 2\pi$ and nonempty singular locus satisfies
+$\mathcal{H}^N(M, g_{\mathrm{cone}}) > \Vol(M, g_{\mathrm{hyp}})$.
+\end{corollary}
+\begin{proof}\leanok
+Apply Corollary~1.13 to $\id_M : (M, g_{\mathrm{cone}}) \to (M, g_{\mathrm{hyp}})$.
+\end{proof}
+
+\begin{lemma}[Selberg Finite Cover Cone-Angle Unwrapping]
+\label{lem_selberg_cone_unwrap}
+\lean{AlexandrovConsequences.unwrapped_cone_angle_le_two_pi_iff, AlexandrovConsequences.unwrapped_cone_angle_lt_two_pi_iff}
+\leanok
+Along a torsion-free Selberg finite cover $p : M \to \mathcal{O}$ with local isotropy orders
+$m_i \ge 1$, the lifted cone angle satisfies $m_i \alpha_i \le 2\pi \iff \alpha_i \le 2\pi / m_i$
+(and similarly for $<$).
+\end{lemma}
+\begin{proof}\leanok
+Multiply or divide both sides by $(m_i : \R) > 0$.
+\end{proof}
+
+\begin{corollary}[Corollary 1.15: Orbifold Cone-Metric Global Volume Minimality]
+\label{cor_orbifold_volume_minimality}
+\lean{AlexandrovConsequences.orbifold_cone_metric_volume_minimality, AlexandrovConsequences.orbifold_cone_metric_strict_volume_minimality}
+\leanok
+\uses{lem_selberg_cone_unwrap, lem_strictness_and_doubling}
+On a compact orientable negatively curved locally symmetric $N$-orbifold ($\mathcal{O}, g_{\mathrm{sym}}$)
+($N \ge 3$), any singular cone-metric $g_{\mathrm{cone}}$ with $K_{\mathrm{reg}} \ge -\kappa_0^2$ and
+cone angles $\alpha_i \le 2\pi / m_i$ satisfies $\mathcal{H}^N(|\mathcal{O}|, g_{\mathrm{cone}}) \ge \Vol(\mathcal{O}, g_{\mathrm{sym}})$,
+with strict inequality whenever some $\alpha_i < 2\pi / m_i$.
+\end{corollary}
+\begin{proof}\leanok
+Lift to a degree-$d$ ($d \ge 1$) Selberg manifold cover $M$, apply Theorem~1.1 (or its strictness
+corollary when $m_i \alpha_i < 2\pi$) to $\id_M$, and divide by $d > 0$.
+\end{proof}
+
+\begin{theorem}[Unconditional Octonionic ($\Oct\Hyp^2$) and Master Cone/Orbifold Synthesis]
+\label{thm_master_catalog}
+\lean{AlexandrovConsequences.alexandrov_octonionic_entropy_degree_and_gh_stability, AlexandrovConsequences.alexandrov_hyperbolic_cone_and_orbifold_master_summary}
+\leanok
+\uses{cor_gh_stability2, cor_hamenstadt_gen, cor_cone_manifold_volume, cor_orbifold_volume_minimality}
+Composing \texttt{BCG.octonionic\_bcg\_main\_theorem} ($N = 16, h_0 = 22$ on $\Oct\Hyp^2$ via Ruan's
+2024 repair) with Corollary~1.12 gives unconditional octonionic entropy-degree rigidity and
+Gromov--Hausdorff stability; bundling Corollaries~1.2, 1.14, and~1.15 gives a unified global volume
+minimality certificate.
+\end{theorem}
+\begin{proof}\leanok
+Apply \texttt{BCG.octonionic\_bcg\_main\_theorem} to discharge the rank-one inequality at
+$(N, h_0) = (16, 22)$, feed it into \texttt{gh\_locally\_symmetric\_entropy\_volume\_stability},
+and assemble the three strict volume minimality theorems.
+\end{proof}

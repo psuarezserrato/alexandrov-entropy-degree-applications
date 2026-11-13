@@ -1,0 +1,27 @@
+% This file compiles the web version of the blueprint via plasTeX.
+\documentclass{report}
+
+\usepackage{amssymb, amsthm, amsmath}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.svg,.png,.jpg}
+\usepackage{hyperref}
+\usepackage[capitalize]{cleveref}
+\usepackage[showmore, dep_graph, project=../../]{blueprint}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+\input{macros/common}
+\input{macros/web}
+
+\home{https://github.com/psuarezserrato/alexandrov-entropy-degree-applications}
+\github{https://github.com/psuarezserrato/alexandrov-entropy-degree-applications}
+\dochome{https://github.com/psuarezserrato/alexandrov-entropy-degree-applications}
+
+\title{Consequences of the Entropy-Degree Theorem for Alexandrov Spaces (arXiv:2606.30403) in Lean 4}
+\author{Pablo Su\'arez-Serrato}
+
+\begin{document}
+\maketitle
+\input{content}
+\end{document}

@@ -1,0 +1,1528 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dependency graph</title>
+  <meta name="generator" content="plasTeX" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles/theme-blue.css" />
+  <link rel="stylesheet" href="styles/dep_graph.css" />
+  
+  <script type="text/x-mathjax-config">
+  
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  
+  </script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+
+
+<link rel="stylesheet" href="styles/extra_styles.css" />
+
+</head>
+
+<body>
+<header>
+  <a class="toc" href="index.html">Home</a>
+  <h1 id="doc_title">Dependencies</h1>
+</header>
+<div class="wrapper">
+<div class="content">
+  <div id="Legend">
+    <span id="legend_title" class="title">Legend
+    <div class="btn">
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+    </div></span> 
+    <dl class="legend">
+      
+      <dt>Boxes</dt><dd>definitions</dd>
+      
+      <dt>Ellipses</dt><dd>theorems and lemmas</dd>
+      
+      <dt>Blue border</dt><dd>the <em>statement</em> of this result is ready to be formalized; all prerequisites are done</dd>
+      
+      <dt>Orange border</dt><dd>the <em>statement</em> of this result is not ready to be formalized; the blueprint needs more work</dd>
+      
+      <dt>Blue background</dt><dd>the <em>proof</em> of this result is ready to be formalized; all prerequisites are done</dd>
+      
+      <dt>Green border</dt><dd>the <em>statement</em> of this result is formalized</dd>
+      
+      <dt>Green background</dt><dd>the <em>proof</em> of this result is formalized</dd>
+      
+      <dt>Dark green background</dt><dd>the <em>proof</em> of this result and all its ancestors are formalized</dd>
+      
+      <dt>Dark green border</dt><dd>this is in Mathlib</dd>
+      
+    </dl>
+  </div>
+    <div id="graph">
+<svg width="2498pt" height="877pt"
+ viewBox="0.00 0.00 2498.00 877.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 100%; height: 100%; max-width: 100%; max-height: 88vh; display: block; margin: 0 auto;">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 873)">
+<polygon fill="white" stroke="none" points="-4,4 -4,-873 2494.38,-873 2494.38,4 -4,4"/>
+<!-- thm_analytic_eq_topological_degree -->
+<g id="node1" class="node">
+<title>thm_analytic_eq_topological_degree</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1078.65" cy="-613" rx="209.75" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1078.65" y="-605.25" font-family="Times,serif" font-size="20.00">thm_analytic_eq_topological_degree</text>
+</g>
+<!-- thm_alexandrov_entropy_degree -->
+<g id="node2" class="node">
+<title>thm_alexandrov_entropy_degree</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1078.65" cy="-494" rx="188.07" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1078.65" y="-486.25" font-family="Times,serif" font-size="20.00">thm_alexandrov_entropy_degree</text>
+</g>
+<!-- thm_analytic_eq_topological_degree&#45;&gt;thm_alexandrov_entropy_degree -->
+<g id="edge1" class="edge">
+<title>thm_analytic_eq_topological_degree&#45;&gt;thm_alexandrov_entropy_degree</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1078.65,-594.23C1078.65,-575.48 1078.65,-545.65 1078.65,-523.59"/>
+<polygon fill="black" stroke="black" points="1078.65,-513.77 1083.15,-523.77 1078.65,-517.55 1078.65,-523.77 1078.65,-523.77 1078.65,-523.77 1078.65,-517.55 1074.15,-523.77 1078.65,-513.77"/>
+</g>
+<!-- lem_strictness_and_doubling -->
+<g id="node3" class="node">
+<title>lem_strictness_and_doubling</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1211.65" cy="-375" rx="165.86" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1211.65" y="-367.25" font-family="Times,serif" font-size="20.00">lem_strictness_and_doubling</text>
+</g>
+<!-- thm_alexandrov_entropy_degree&#45;&gt;lem_strictness_and_doubling -->
+<g id="edge2" class="edge">
+<title>thm_alexandrov_entropy_degree&#45;&gt;lem_strictness_and_doubling</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1098.85,-475.23C1121.44,-455.36 1158.18,-423.04 1183.56,-400.71"/>
+<polygon fill="black" stroke="black" points="1190.78,-394.36 1186.25,-404.34 1187.95,-396.86 1183.28,-400.96 1183.28,-400.96 1183.28,-400.96 1187.95,-396.86 1180.3,-397.58 1190.78,-394.36"/>
+</g>
+<!-- cor_gh_stability2 -->
+<g id="node4" class="node">
+<title>cor_gh_stability2</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="143.65" cy="-375" rx="100.3" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="143.65" y="-367.25" font-family="Times,serif" font-size="20.00">cor_gh_stability2</text>
+</g>
+<!-- thm_alexandrov_entropy_degree&#45;&gt;cor_gh_stability2 -->
+<g id="edge3" class="edge">
+<title>thm_alexandrov_entropy_degree&#45;&gt;cor_gh_stability2</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M954.9,-479.76C792.35,-461.99 498.17,-428.53 247.65,-393 240.88,-392.04 233.86,-391 226.82,-389.92"/>
+<polygon fill="black" stroke="black" points="216.97,-388.38 227.54,-385.47 220.71,-388.96 226.85,-389.92 226.85,-389.92 226.85,-389.92 220.71,-388.96 226.16,-394.37 216.97,-388.38"/>
+</g>
+<!-- lem_remark_index_necessity -->
+<g id="node5" class="node">
+<title>lem_remark_index_necessity</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1550.65" cy="-375" rx="167.45" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1550.65" y="-367.25" font-family="Times,serif" font-size="20.00">lem_remark_index_necessity</text>
+</g>
+<!-- thm_alexandrov_entropy_degree&#45;&gt;lem_remark_index_necessity -->
+<g id="edge4" class="edge">
+<title>thm_alexandrov_entropy_degree&#45;&gt;lem_remark_index_necessity</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1145.78,-476.36C1232.48,-454.87 1383.04,-417.55 1474.1,-394.98"/>
+<polygon fill="black" stroke="black" points="1483.72,-392.59 1475.09,-399.37 1480.05,-393.5 1474.01,-395 1474.01,-395 1474.01,-395 1480.05,-393.5 1472.93,-390.63 1483.72,-392.59"/>
+</g>
+<!-- cor_gh_stability -->
+<g id="node6" class="node">
+<title>cor_gh_stability</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="946.65" cy="-375" rx="93.42" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="946.65" y="-367.25" font-family="Times,serif" font-size="20.00">cor_gh_stability</text>
+</g>
+<!-- thm_alexandrov_entropy_degree&#45;&gt;cor_gh_stability -->
+<g id="edge5" class="edge">
+<title>thm_alexandrov_entropy_degree&#45;&gt;cor_gh_stability</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1058.61,-475.23C1036.06,-455.24 999.3,-422.66 974.1,-400.32"/>
+<polygon fill="black" stroke="black" points="966.94,-393.98 977.41,-397.25 969.77,-396.49 974.42,-400.61 974.42,-400.61 974.42,-400.61 969.77,-396.49 971.44,-403.98 966.94,-393.98"/>
+</g>
+<!-- cor_einstein_euler_obstruction -->
+<g id="node7" class="node">
+<title>cor_einstein_euler_obstruction</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="714.65" cy="-256" rx="175.38" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="714.65" y="-248.25" font-family="Times,serif" font-size="20.00">cor_einstein_euler_obstruction</text>
+</g>
+<!-- lem_strictness_and_doubling&#45;&gt;cor_einstein_euler_obstruction -->
+<g id="edge6" class="edge">
+<title>lem_strictness_and_doubling&#45;&gt;cor_einstein_euler_obstruction</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1142.81,-357.79C1051.71,-336.35 891.41,-298.61 794.92,-275.89"/>
+<polygon fill="black" stroke="black" points="785.24,-273.62 796,-271.53 788.92,-274.48 794.97,-275.91 794.97,-275.91 794.97,-275.91 788.92,-274.48 793.94,-280.29 785.24,-273.62"/>
+</g>
+<!-- cor_hamenstadt_gen -->
+<g id="node8" class="node">
+<title>cor_hamenstadt_gen</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1025.65" cy="-137" rx="119.33" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1025.65" y="-129.25" font-family="Times,serif" font-size="20.00">cor_hamenstadt_gen</text>
+</g>
+<!-- lem_strictness_and_doubling&#45;&gt;cor_hamenstadt_gen -->
+<g id="edge7" class="edge">
+<title>lem_strictness_and_doubling&#45;&gt;cor_hamenstadt_gen</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1194.2,-356.41C1175.94,-337.31 1147.24,-305.34 1127.65,-274 1118.38,-259.15 1121.02,-252.8 1111.65,-238 1094.27,-210.53 1069.71,-182.77 1051.29,-163.49"/>
+<polygon fill="black" stroke="black" points="1044.4,-156.39 1054.59,-160.44 1047.03,-159.11 1051.36,-163.57 1051.36,-163.57 1051.36,-163.57 1047.03,-159.11 1048.13,-166.7 1044.4,-156.39"/>
+</g>
+<!-- cor_manifold_boundary -->
+<g id="node9" class="node">
+<title>cor_manifold_boundary</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="2074.65" cy="-256" rx="138.37" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="2074.65" y="-248.25" font-family="Times,serif" font-size="20.00">cor_manifold_boundary</text>
+</g>
+<!-- lem_strictness_and_doubling&#45;&gt;cor_manifold_boundary -->
+<g id="edge8" class="edge">
+<title>lem_strictness_and_doubling&#45;&gt;cor_manifold_boundary</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1314.04,-360.12C1478.99,-337.76 1801.93,-293.97 1968.96,-271.33"/>
+<polygon fill="black" stroke="black" points="1978.77,-270 1969.47,-275.8 1975.03,-270.51 1968.87,-271.34 1968.87,-271.34 1968.87,-271.34 1975.03,-270.51 1968.26,-266.88 1978.77,-270"/>
+</g>
+<!-- cor_cone_manifold -->
+<g id="node10" class="node">
+<title>cor_cone_manifold</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1241.65" cy="-256" rx="112.46" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1241.65" y="-248.25" font-family="Times,serif" font-size="20.00">cor_cone_manifold</text>
+</g>
+<!-- lem_strictness_and_doubling&#45;&gt;cor_cone_manifold -->
+<g id="edge9" class="edge">
+<title>lem_strictness_and_doubling&#45;&gt;cor_cone_manifold</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1216.21,-356.23C1221.04,-337.39 1228.74,-307.38 1234.4,-285.28"/>
+<polygon fill="black" stroke="black" points="1236.85,-275.73 1238.72,-286.54 1235.91,-279.4 1234.37,-285.42 1234.37,-285.42 1234.37,-285.42 1235.91,-279.4 1230.01,-284.3 1236.85,-275.73"/>
+</g>
+<!-- cor_orbifold_volume_minimality -->
+<g id="node11" class="node">
+<title>cor_orbifold_volume_minimality</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="343.65" cy="-256" rx="189.66" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="343.65" y="-248.25" font-family="Times,serif" font-size="20.00">cor_orbifold_volume_minimality</text>
+</g>
+<!-- lem_strictness_and_doubling&#45;&gt;cor_orbifold_volume_minimality -->
+<g id="edge10" class="edge">
+<title>lem_strictness_and_doubling&#45;&gt;cor_orbifold_volume_minimality</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1109.1,-360.18C947.45,-338.39 634.2,-296.16 462.8,-273.06"/>
+<polygon fill="black" stroke="black" points="452.93,-271.73 463.44,-268.61 456.68,-272.23 462.84,-273.07 462.84,-273.07 462.84,-273.07 456.68,-272.23 462.24,-277.52 452.93,-271.73"/>
+</g>
+<!-- cor_cone_simplicial_volume -->
+<g id="node12" class="node">
+<title>cor_cone_simplicial_volume</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1525.65" cy="-256" rx="165.33" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1525.65" y="-248.25" font-family="Times,serif" font-size="20.00">cor_cone_simplicial_volume</text>
+</g>
+<!-- lem_strictness_and_doubling&#45;&gt;cor_cone_simplicial_volume -->
+<g id="edge11" class="edge">
+<title>lem_strictness_and_doubling&#45;&gt;cor_cone_simplicial_volume</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1257.65,-356.86C1313.81,-335.93 1408.78,-300.55 1469.28,-278"/>
+<polygon fill="black" stroke="black" points="1478.65,-274.51 1470.85,-282.22 1475.11,-275.83 1469.28,-278.01 1469.28,-278.01 1469.28,-278.01 1475.11,-275.83 1467.71,-273.79 1478.65,-274.51"/>
+</g>
+<!-- thm_simplicial_volume -->
+<g id="node13" class="node">
+<title>thm_simplicial_volume</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="2354.65" cy="-256" rx="135.72" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="2354.65" y="-248.25" font-family="Times,serif" font-size="20.00">thm_simplicial_volume</text>
+</g>
+<!-- lem_strictness_and_doubling&#45;&gt;thm_simplicial_volume -->
+<g id="edge12" class="edge">
+<title>lem_strictness_and_doubling&#45;&gt;thm_simplicial_volume</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1331.92,-361.97C1348.63,-360.3 1365.57,-358.61 1381.65,-357 1751.87,-320.05 1844.85,-314.87 2214.65,-274 2224.77,-272.88 2235.29,-271.68 2245.82,-270.45"/>
+<polygon fill="black" stroke="black" points="2255.56,-269.3 2246.16,-274.94 2251.81,-269.74 2245.63,-270.47 2245.63,-270.47 2245.63,-270.47 2251.81,-269.74 2245.11,-266 2255.56,-269.3"/>
+</g>
+<!-- thm_master_catalog -->
+<g id="node14" class="node">
+<title>thm_master_catalog</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="684.65" cy="-18" rx="117.22" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="684.65" y="-10.25" font-family="Times,serif" font-size="20.00">thm_master_catalog</text>
+</g>
+<!-- cor_gh_stability2&#45;&gt;thm_master_catalog -->
+<g id="edge13" class="edge">
+<title>cor_gh_stability2&#45;&gt;thm_master_catalog</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M139.2,-356.18C133.3,-328.18 126.37,-273.42 151.65,-238 249.84,-100.42 450.58,-49.05 575.74,-30.02"/>
+<polygon fill="black" stroke="black" points="585.28,-28.62 576.04,-34.53 581.54,-29.17 575.39,-30.07 575.39,-30.07 575.39,-30.07 581.54,-29.17 574.73,-25.62 585.28,-28.62"/>
+</g>
+<!-- cor_gromov_thurston_euler_neg -->
+<g id="node15" class="node">
+<title>cor_gromov_thurston_euler_neg</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="714.65" cy="-137" rx="185.95" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="714.65" y="-129.25" font-family="Times,serif" font-size="20.00">cor_gromov_thurston_euler_neg</text>
+</g>
+<!-- cor_einstein_euler_obstruction&#45;&gt;cor_gromov_thurston_euler_neg -->
+<g id="edge14" class="edge">
+<title>cor_einstein_euler_obstruction&#45;&gt;cor_gromov_thurston_euler_neg</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M714.65,-237.23C714.65,-218.48 714.65,-188.65 714.65,-166.59"/>
+<polygon fill="black" stroke="black" points="714.65,-156.77 719.15,-166.77 714.65,-160.55 714.65,-166.77 714.65,-166.77 714.65,-166.77 714.65,-160.55 710.15,-166.77 714.65,-156.77"/>
+</g>
+<!-- cor_hamenstadt_gen&#45;&gt;thm_master_catalog -->
+<g id="edge16" class="edge">
+<title>cor_hamenstadt_gen&#45;&gt;thm_master_catalog</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M978.24,-119.73C916.48,-98.54 808.6,-61.53 742.22,-38.75"/>
+<polygon fill="black" stroke="black" points="733.09,-35.62 744.01,-34.61 736.67,-36.85 742.55,-38.87 742.55,-38.87 742.55,-38.87 736.67,-36.85 741.09,-43.12 733.09,-35.62"/>
+</g>
+<!-- thm_boundary_rigidity -->
+<g id="node16" class="node">
+<title>thm_boundary_rigidity</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="2076.65" cy="-137" rx="132.02" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="2076.65" y="-129.25" font-family="Times,serif" font-size="20.00">thm_boundary_rigidity</text>
+</g>
+<!-- cor_manifold_boundary&#45;&gt;thm_boundary_rigidity -->
+<g id="edge17" class="edge">
+<title>cor_manifold_boundary&#45;&gt;thm_boundary_rigidity</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2074.96,-237.23C2075.28,-218.48 2075.79,-188.65 2076.16,-166.59"/>
+<polygon fill="black" stroke="black" points="2076.33,-156.77 2080.66,-166.85 2076.27,-160.55 2076.16,-166.77 2076.16,-166.77 2076.16,-166.77 2076.27,-160.55 2071.66,-166.69 2076.33,-156.77"/>
+</g>
+<!-- cor_translation_length -->
+<g id="node18" class="node">
+<title>cor_translation_length</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1810.65" cy="-137" rx="128.32" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1810.65" y="-129.25" font-family="Times,serif" font-size="20.00">cor_translation_length</text>
+</g>
+<!-- cor_manifold_boundary&#45;&gt;cor_translation_length -->
+<g id="edge18" class="edge">
+<title>cor_manifold_boundary&#45;&gt;cor_translation_length</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2035.98,-237.86C1989.09,-217.08 1910.01,-182.03 1859.1,-159.47"/>
+<polygon fill="black" stroke="black" points="1850.11,-155.49 1861.08,-155.43 1853.57,-157.02 1859.25,-159.54 1859.25,-159.54 1859.25,-159.54 1853.57,-157.02 1857.43,-163.65 1850.11,-155.49"/>
+</g>
+<!-- cor_bonahon_degree -->
+<g id="node19" class="node">
+<title>cor_bonahon_degree</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="2335.65" cy="-137" rx="120.92" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="2335.65" y="-129.25" font-family="Times,serif" font-size="20.00">cor_bonahon_degree</text>
+</g>
+<!-- cor_manifold_boundary&#45;&gt;cor_bonahon_degree -->
+<g id="edge19" class="edge">
+<title>cor_manifold_boundary&#45;&gt;cor_bonahon_degree</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2112.88,-237.86C2159.38,-217.02 2237.87,-181.83 2288.19,-159.28"/>
+<polygon fill="black" stroke="black" points="2297.05,-155.3 2289.77,-163.5 2293.6,-156.85 2287.93,-159.39 2287.93,-159.39 2287.93,-159.39 2293.6,-156.85 2286.09,-155.29 2297.05,-155.3"/>
+</g>
+<!-- cor_orbifold_volume_minimality&#45;&gt;thm_master_catalog -->
+<g id="edge20" class="edge">
+<title>cor_orbifold_volume_minimality&#45;&gt;thm_master_catalog</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M365.93,-237.44C399.82,-210.94 466.63,-159.52 525.65,-119 565.98,-91.32 613.63,-61.75 646.18,-42"/>
+<polygon fill="black" stroke="black" points="654.73,-36.83 648.5,-45.86 651.49,-38.79 646.17,-42.01 646.17,-42.01 646.17,-42.01 651.49,-38.79 643.84,-38.16 654.73,-36.83"/>
+</g>
+<!-- cor_cone_manifold_volume -->
+<g id="node20" class="node">
+<title>cor_cone_manifold_volume</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1414.65" cy="-137" rx="161.1" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1414.65" y="-129.25" font-family="Times,serif" font-size="20.00">cor_cone_manifold_volume</text>
+</g>
+<!-- cor_cone_simplicial_volume&#45;&gt;cor_cone_manifold_volume -->
+<g id="edge21" class="edge">
+<title>cor_cone_simplicial_volume&#45;&gt;cor_cone_manifold_volume</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1508.79,-237.23C1490.19,-217.62 1460.08,-185.88 1438.93,-163.59"/>
+<polygon fill="black" stroke="black" points="1432.15,-156.44 1442.29,-160.6 1434.75,-159.18 1439.03,-163.69 1439.03,-163.69 1439.03,-163.69 1434.75,-159.18 1435.76,-166.79 1432.15,-156.44"/>
+</g>
+<!-- def_satake_einstein_data -->
+<g id="node17" class="node">
+<title>def_satake_einstein_data</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="816.53,-393 612.77,-393 612.77,-357 816.53,-357 816.53,-393"/>
+<text xml:space="preserve" text-anchor="middle" x="714.65" y="-367.25" font-family="Times,serif" font-size="20.00">def_satake_einstein_data</text>
+</g>
+<!-- def_satake_einstein_data&#45;&gt;cor_einstein_euler_obstruction -->
+<g id="edge15" class="edge">
+<title>def_satake_einstein_data&#45;&gt;cor_einstein_euler_obstruction</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M714.65,-356.23C714.65,-337.48 714.65,-307.65 714.65,-285.59"/>
+<polygon fill="black" stroke="black" points="714.65,-275.77 719.15,-285.77 714.65,-279.55 714.65,-285.77 714.65,-285.77 714.65,-285.77 714.65,-279.55 710.15,-285.77 714.65,-275.77"/>
+</g>
+<!-- cor_unified_volume -->
+<g id="node21" class="node">
+<title>cor_unified_volume</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="2335.65" cy="-18" rx="116.69" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="2335.65" y="-10.25" font-family="Times,serif" font-size="20.00">cor_unified_volume</text>
+</g>
+<!-- cor_bonahon_degree&#45;&gt;cor_unified_volume -->
+<g id="edge22" class="edge">
+<title>cor_bonahon_degree&#45;&gt;cor_unified_volume</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2335.65,-118.23C2335.65,-99.48 2335.65,-69.65 2335.65,-47.59"/>
+<polygon fill="black" stroke="black" points="2335.65,-37.77 2340.15,-47.77 2335.65,-41.55 2335.65,-47.77 2335.65,-47.77 2335.65,-47.77 2335.65,-41.55 2331.15,-47.77 2335.65,-37.77"/>
+</g>
+<!-- cor_cone_manifold_volume&#45;&gt;thm_master_catalog -->
+<g id="edge23" class="edge">
+<title>cor_cone_manifold_volume&#45;&gt;thm_master_catalog</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1323.67,-121.42C1183.33,-98.93 915.63,-56.02 775.42,-33.55"/>
+<polygon fill="black" stroke="black" points="765.93,-32.03 776.51,-29.17 769.66,-32.62 775.8,-33.61 775.8,-33.61 775.8,-33.61 769.66,-32.62 775.09,-38.05 765.93,-32.03"/>
+</g>
+<!-- lem_reviron_entropy_lsc -->
+<g id="node22" class="node">
+<title>lem_reviron_entropy_lsc</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="143.65" cy="-494" rx="143.65" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="143.65" y="-486.25" font-family="Times,serif" font-size="20.00">lem_reviron_entropy_lsc</text>
+</g>
+<!-- lem_reviron_entropy_lsc&#45;&gt;cor_gh_stability2 -->
+<g id="edge24" class="edge">
+<title>lem_reviron_entropy_lsc&#45;&gt;cor_gh_stability2</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M143.65,-475.23C143.65,-456.48 143.65,-426.65 143.65,-404.59"/>
+<polygon fill="black" stroke="black" points="143.65,-394.77 148.15,-404.77 143.65,-398.55 143.65,-404.77 143.65,-404.77 143.65,-404.77 143.65,-398.55 139.15,-404.77 143.65,-394.77"/>
+</g>
+<!-- def_analytic_degree -->
+<g id="node23" class="node">
+<title>def_analytic_degree</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="1161.78,-869 995.52,-869 995.52,-833 1161.78,-833 1161.78,-869"/>
+<text xml:space="preserve" text-anchor="middle" x="1078.65" y="-843.25" font-family="Times,serif" font-size="20.00">def_analytic_degree</text>
+</g>
+<!-- lem_analytic_degree_integral_bound -->
+<g id="node24" class="node">
+<title>lem_analytic_degree_integral_bound</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1078.65" cy="-732" rx="210.81" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1078.65" y="-724.25" font-family="Times,serif" font-size="20.00">lem_analytic_degree_integral_bound</text>
+</g>
+<!-- def_analytic_degree&#45;&gt;lem_analytic_degree_integral_bound -->
+<g id="edge25" class="edge">
+<title>def_analytic_degree&#45;&gt;lem_analytic_degree_integral_bound</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1078.65,-832.23C1078.65,-813.48 1078.65,-783.65 1078.65,-761.59"/>
+<polygon fill="black" stroke="black" points="1078.65,-751.77 1083.15,-761.77 1078.65,-755.55 1078.65,-761.77 1078.65,-761.77 1078.65,-761.77 1078.65,-755.55 1074.15,-761.77 1078.65,-751.77"/>
+</g>
+<!-- lem_analytic_degree_integral_bound&#45;&gt;thm_analytic_eq_topological_degree -->
+<g id="edge26" class="edge">
+<title>lem_analytic_degree_integral_bound&#45;&gt;thm_analytic_eq_topological_degree</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1078.65,-713.23C1078.65,-694.48 1078.65,-664.65 1078.65,-642.59"/>
+<polygon fill="black" stroke="black" points="1078.65,-632.77 1083.15,-642.77 1078.65,-636.55 1078.65,-642.77 1078.65,-642.77 1078.65,-642.77 1078.65,-636.55 1074.15,-642.77 1078.65,-632.77"/>
+</g>
+<!-- def_branched_cone_angle -->
+<g id="node25" class="node">
+<title>def_branched_cone_angle</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="1109.41,-274 895.9,-274 895.9,-238 1109.41,-238 1109.41,-274"/>
+<text xml:space="preserve" text-anchor="middle" x="1002.65" y="-248.25" font-family="Times,serif" font-size="20.00">def_branched_cone_angle</text>
+</g>
+<!-- def_branched_cone_angle&#45;&gt;cor_hamenstadt_gen -->
+<g id="edge28" class="edge">
+<title>def_branched_cone_angle&#45;&gt;cor_hamenstadt_gen</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1006.15,-237.23C1009.85,-218.39 1015.75,-188.38 1020.09,-166.28"/>
+<polygon fill="black" stroke="black" points="1021.97,-156.75 1024.45,-167.43 1021.24,-160.46 1020.04,-166.56 1020.04,-166.56 1020.04,-166.56 1021.24,-160.46 1015.62,-165.69 1021.97,-156.75"/>
+</g>
+<!-- def_branched_cone_angle&#45;&gt;cor_gromov_thurston_euler_neg -->
+<g id="edge27" class="edge">
+<title>def_branched_cone_angle&#45;&gt;cor_gromov_thurston_euler_neg</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M958.6,-237.1C907.23,-216.23 822.38,-181.77 767.51,-159.47"/>
+<polygon fill="black" stroke="black" points="758.42,-155.78 769.38,-155.38 761.93,-157.2 767.69,-159.54 767.69,-159.54 767.69,-159.54 761.93,-157.2 765.99,-163.71 758.42,-155.78"/>
+</g>
+<!-- def_gromov_simplicial_volume -->
+<g id="node26" class="node">
+<title>def_gromov_simplicial_volume</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="2483.91,-393 2225.4,-393 2225.4,-357 2483.91,-357 2483.91,-393"/>
+<text xml:space="preserve" text-anchor="middle" x="2354.65" y="-367.25" font-family="Times,serif" font-size="20.00">def_gromov_simplicial_volume</text>
+</g>
+<!-- def_gromov_simplicial_volume&#45;&gt;thm_simplicial_volume -->
+<g id="edge29" class="edge">
+<title>def_gromov_simplicial_volume&#45;&gt;thm_simplicial_volume</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2354.65,-356.23C2354.65,-337.48 2354.65,-307.65 2354.65,-285.59"/>
+<polygon fill="black" stroke="black" points="2354.65,-275.77 2359.15,-285.77 2354.65,-279.55 2354.65,-285.77 2354.65,-285.77 2354.65,-285.77 2354.65,-279.55 2350.15,-285.77 2354.65,-275.77"/>
+</g>
+<!-- def_infimal_convex_volume -->
+<g id="node27" class="node">
+<title>def_infimal_convex_volume</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="1930.53,-274 1696.77,-274 1696.77,-238 1930.53,-238 1930.53,-274"/>
+<text xml:space="preserve" text-anchor="middle" x="1813.65" y="-248.25" font-family="Times,serif" font-size="20.00">def_infimal_convex_volume</text>
+</g>
+<!-- def_infimal_convex_volume&#45;&gt;cor_translation_length -->
+<g id="edge30" class="edge">
+<title>def_infimal_convex_volume&#45;&gt;cor_translation_length</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1813.2,-237.23C1812.72,-218.48 1811.95,-188.65 1811.39,-166.59"/>
+<polygon fill="black" stroke="black" points="1811.13,-156.77 1815.89,-166.65 1811.23,-160.55 1811.39,-166.77 1811.39,-166.77 1811.39,-166.77 1811.23,-160.55 1806.89,-166.88 1811.13,-156.77"/>
+</g>
+<!-- lem_selberg_cone_unwrap -->
+<g id="node28" class="node">
+<title>lem_selberg_cone_unwrap</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="404.65" cy="-375" rx="154.23" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="404.65" y="-367.25" font-family="Times,serif" font-size="20.00">lem_selberg_cone_unwrap</text>
+</g>
+<!-- lem_selberg_cone_unwrap&#45;&gt;cor_orbifold_volume_minimality -->
+<g id="edge31" class="edge">
+<title>lem_selberg_cone_unwrap&#45;&gt;cor_orbifold_volume_minimality</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M395.39,-356.23C385.43,-337.14 369.49,-306.55 357.93,-284.38"/>
+<polygon fill="black" stroke="black" points="353.37,-275.63 361.98,-282.42 355.12,-278.99 357.99,-284.5 357.99,-284.5 357.99,-284.5 355.12,-278.99 354,-286.58 353.37,-275.63"/>
+</g>
+</g>
+</svg>
+</div>
+<div id="statements">
+
+    
+    <div class="dep-modal-container" id="cor_bonahon_degree_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_bonahon_degree" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">3.3</span><span class="corollary_thmtitle">Corollary 1.6: Geometrically Finite Hyperbolic 3-Manifold Convex Cores</span></div>
+    <div class="thm_thmcontent"><p>    For convex cores \(C_M \to C_{M_g}\) of geometrically finite hyperbolic \(3\)-manifolds (\(N = 3, h_0 = 2\)) of relative degree \(k\), both the doubled core and smooth \(r\)-neighborhood approximation limit yield \(|k|\, \operatorname {Vol}(C_{M_g}) \le \operatorname {Vol}(C_M)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#cor_bonahon_degree">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.geometrically_finite_convex_core_volume_bound" class="lean_decl">AlexandrovConsequences.geometrically_finite_convex_core_volume_bound</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.geometrically_finite_convex_core_volume_bound_limit" class="lean_decl">AlexandrovConsequences.geometrically_finite_convex_core_volume_bound_limit</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_cone_manifold_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_cone_manifold" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">3.1</span><span class="corollary_thmtitle">Corollary 1.4: Cone-Manifolds with Cone Angles \(\le 2\pi \)</span></div>
+    <div class="thm_thmcontent"><p>    For a compact orientable \(N\)-cone-manifold \(Z\) (\(N \ge 3\)) with cone angles \(\le 2\pi \) and \(K_{\mathrm{reg}} \ge -1\) (so \(0 \le h(\overline{Z}) \le N - 1\)), every continuous map \(f : Z \to Y\) satisfies \(|\deg (f)|\, h(\widetilde{Y})^N \mathcal{H}^N(Y) \le (N-1)^N \mathcal{H}^N(Z)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#cor_cone_manifold">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.cone_manifold_entropy_degree_bound">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_cone_manifold_volume_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_cone_manifold_volume" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">6.2</span><span class="corollary_thmtitle">Corollary 1.14: Global Cone-Metric Volume Minimality on Hyperbolic Manifolds</span></div>
+    <div class="thm_thmcontent"><p>    On any closed hyperbolic \(N\)-manifold \((M, g_{\mathrm{hyp}})\) (\(N \ge 3\)), every hyperbolic cone-metric \(g_{\mathrm{cone}}\) with cone angles \(\le 2\pi \) and nonempty singular locus satisfies \(\mathcal{H}^N(M, g_{\mathrm{cone}}) {\gt} \operatorname {Vol}(M, g_{\mathrm{hyp}})\). </p>
+</div>
+
+    <a class="latex_link" href="sect0006.html#cor_cone_manifold_volume">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.hyperbolic_cone_metric_strict_volume_minimality">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_cone_simplicial_volume_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_cone_simplicial_volume" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">6.1</span><span class="corollary_thmtitle">Corollary 1.13: Simplicial Volume of Alexandrov Spaces and Cone-Manifolds</span></div>
+    <div class="thm_thmcontent"><p>    Using Gromov–Thurston proportionality \(\operatorname {Vol}(Y) = v_N \| Y\| \), we have \(\mathcal{H}^N(X) \ge |\deg (f)| v_N \| Y\| \). For a homotopy equivalence, \(\mathcal{H}^N(X) \ge v_N \| X\| \) with equality iff \(X \cong Y\), and \(\mathcal{S}_X \neq \emptyset \) forces strict inequality \(\mathcal{H}^N(X) {\gt} v_N \| X\| \). </p>
+</div>
+
+    <a class="latex_link" href="sect0006.html#cor_cone_simplicial_volume">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_simplicial_volume_bound" class="lean_decl">AlexandrovConsequences.alexandrov_simplicial_volume_bound</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_homotopy_simplicial_rigidity" class="lean_decl">AlexandrovConsequences.alexandrov_homotopy_simplicial_rigidity</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.hyperbolic_cone_manifold_strict_simplicial_bound" class="lean_decl">AlexandrovConsequences.hyperbolic_cone_manifold_strict_simplicial_bound</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_einstein_euler_obstruction_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_einstein_euler_obstruction" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">2.4</span><span class="corollary_thmtitle">Corollary 1.3(a)–(b): Einstein 4-Orbifold Euler Obstructions</span></div>
+    <div class="thm_thmcontent"><p>    Under a continuous map \(f : X \to Y\) as above, \(\chi _{\mathrm{orb}}(X) \ge |\deg (f)|\, \chi (Y)\). Moreover, if \(\mathcal{S}_X \neq \emptyset \) and \(|\deg (f)| = [\pi _1(Y):f_*\pi _1(X)] \ge 1\) (forcing \(\deg (f) \neq 0\)), then strict inequality holds: \(\chi _{\mathrm{orb}}(X) {\gt} |\deg (f)|\, \chi (Y)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#cor_einstein_euler_obstruction">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.einstein_four_orbifold_euler_obstruction" class="lean_decl">AlexandrovConsequences.einstein_four_orbifold_euler_obstruction</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.einstein_four_orbifold_strict_euler_obstruction" class="lean_decl">AlexandrovConsequences.einstein_four_orbifold_strict_euler_obstruction</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_gh_stability_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_gh_stability" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">5.2</span><span class="corollary_thmtitle">Corollary 1.11: Gromov–Hausdorff Stability of Hyperbolic Volume</span></div>
+    <div class="thm_thmcontent"><p>    If closed \(N\)-manifolds \((M_i)\) (\(N \ge 3\), \(\mathrm{sec} \ge -1\)) converge in Gromov–Hausdorff distance to \((X, \mathsf{d})\) with \(\operatorname {Vol}(M_i) \to k\, \operatorname {Vol}(Y)\) (\(k \ge 1\)) and Perelman stability transfers \(|\deg | = \mathrm{index} = k\), then \(\operatorname {Vol}(X) = k\, \operatorname {Vol}(Y)\), \(h(\widetilde{X}) = N - 1\), \(\mathcal{S}_X = \emptyset \), and \(X\) is globally isometric to the smooth degree-\(k\) hyperbolic cover of \(Y\) (\(Y\) itself when \(k = 1\)). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#cor_gh_stability">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gh_hyperbolic_volume_stability">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_gh_stability2_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_gh_stability2" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">5.3</span><span class="corollary_thmtitle">Corollary 1.12: Locally Symmetric GH Entropy-Volume Stability</span></div>
+    <div class="thm_thmcontent"><p>    For any closed orientable negatively curved locally symmetric \(N\)-manifold \(Y\) (\(N \ge 3\)), if \(h(\widetilde{M}_i)^N \operatorname {Vol}(M_i) \to k\, h(\widetilde{Y})^N \operatorname {Vol}(Y)\) (\(k \ge 1\)), \(\operatorname {Vol}(M_i) \to \operatorname {Vol}(X) {\gt} 0\), and Reviron’s entropy lower-semicontinuity holds, then \(h(\widetilde{X})^N \operatorname {Vol}(X) = k\, h(\widetilde{Y})^N \operatorname {Vol}(Y)\), \(h(\widetilde{X}) {\gt} 0\), \(\mathcal{S}_X = \emptyset \), and \((X, (h(\widetilde{X})/h(\widetilde{Y}))\mathsf{d}_X)\) is globally isometric to the smooth degree-\(k\) cover \(\widehat{Y}\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#cor_gh_stability2">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gh_locally_symmetric_entropy_volume_stability">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_gromov_thurston_euler_neg_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_gromov_thurston_euler_neg" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">2.5</span><span class="corollary_thmtitle">Corollary 1.3(c): Gromov–Thurston Branch-Locus Euler Sign</span></div>
+    <div class="thm_thmcontent"><p>    For \(X = M_d / \mathbb {Z}_d\) (\(d \ge 2\)) branched along a closed surface \(\Sigma \subset M\), any Einstein metric \(\mathrm{Ric}(g_E) = -3 g_E\) on \(X\) forces \(\chi (\Sigma ) {\lt} 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#cor_gromov_thurston_euler_neg">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gromov_thurston_branch_locus_euler_neg">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_hamenstadt_gen_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_hamenstadt_gen" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">2.2</span><span class="corollary_thmtitle">Corollary 1.2: Branched Coverings and Hamenstädt’s Question</span></div>
+    <div class="thm_thmcontent"><p>    Let \(M\) be a closed hyperbolic \(N\)-manifold (\(N \ge 3\)) and \(X = M_d / \mathbb {Z}_d\) (\(d \ge 2\)) the orbifold quotient of a branched cover along a nonempty codimension-\(2\) locus \(\Sigma \) carrying a negatively curved metric (\(h(\overline{X}) \le N - 1\)). Then </p>
+<div class="displaymath" id="a0000000017">
+  \[  \mathcal{H}^N(M_d / \mathbb {Z}_d) {\gt} \operatorname {Vol}(M) \qquad \text{and} \qquad \operatorname {Vol}(M_d) {\gt} d \cdot \operatorname {Vol}(M).  \]
+</div>
+</div>
+
+    <a class="latex_link" href="sect0002.html#cor_hamenstadt_gen">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.hamenstadt_quotient_strict_volume_gap" class="lean_decl">AlexandrovConsequences.hamenstadt_quotient_strict_volume_gap</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.hamenstadt_branched_cover_volume_gap" class="lean_decl">AlexandrovConsequences.hamenstadt_branched_cover_volume_gap</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_manifold_boundary_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_manifold_boundary" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">3.2</span><span class="corollary_thmtitle">Corollary 1.5: Hyperbolic Manifolds with Locally Convex Boundary</span></div>
+    <div class="thm_thmcontent"><p>    For a compact oriented \(N\)-manifold \(Z\) (\(N \ge 3\)) with locally convex boundary and \(\mathrm{sec} \ge -1\) mapped with relative degree \(k \in \mathbb {Z}\) to a hyperbolic \(N\)-manifold \(Y_{\mathrm{geod}}\) with totally geodesic boundary, Perelman doubling \(DZ \to DY_{\mathrm{geod}}\) yields \(|k|\, \operatorname {Vol}(Y_{\mathrm{geod}}) \le \operatorname {Vol}(Z)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#cor_manifold_boundary">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.convex_manifold_boundary_volume_bound">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_orbifold_volume_minimality_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_orbifold_volume_minimality" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">6.4</span><span class="corollary_thmtitle">Corollary 1.15: Orbifold Cone-Metric Global Volume Minimality</span></div>
+    <div class="thm_thmcontent"><p>    On a compact orientable negatively curved locally symmetric \(N\)-orbifold (\(\mathcal{O}, g_{\mathrm{sym}}\)) (\(N \ge 3\)), any singular cone-metric \(g_{\mathrm{cone}}\) with \(K_{\mathrm{reg}} \ge -\kappa _0^2\) and cone angles \(\alpha _i \le 2\pi / m_i\) satisfies \(\mathcal{H}^N(|\mathcal{O}|, g_{\mathrm{cone}}) \ge \operatorname {Vol}(\mathcal{O}, g_{\mathrm{sym}})\), with strict inequality whenever some \(\alpha _i {\lt} 2\pi / m_i\). </p>
+</div>
+
+    <a class="latex_link" href="sect0006.html#cor_orbifold_volume_minimality">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.orbifold_cone_metric_volume_minimality" class="lean_decl">AlexandrovConsequences.orbifold_cone_metric_volume_minimality</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.orbifold_cone_metric_strict_volume_minimality" class="lean_decl">AlexandrovConsequences.orbifold_cone_metric_strict_volume_minimality</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_translation_length_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_translation_length" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">3.6</span><span class="corollary_thmtitle">Corollary 1.8: Mapping-Class Translation Length Lower Bound</span></div>
+    <div class="thm_thmcontent"><p>    On a nonempty family \(S\) of convex hyperbolic metrics on \(\overline{M}_\phi \), Corollary&#160;1.5 holds uniformly, giving \(|k|\, \operatorname {Vol}(Y) \le \underline{\operatorname {Vol}}(\overline{M}_\phi )\), and combining with \(\underline{\operatorname {Vol}}(\overline{M}_\phi ) \le V_{\mathrm{oct}}\, \tau (\phi )\) (\(V_{\mathrm{oct}} {\gt} 0\)) yields </p>
+<div class="displaymath" id="a0000000026">
+  \[  \frac{|k|}{V_{\mathrm{oct}}}\, \operatorname {Vol}(Y) \le \tau (\phi ).  \]
+</div>
+</div>
+
+    <a class="latex_link" href="sect0003.html#cor_translation_length">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.mapping_torus_infimal_volume_bound" class="lean_decl">AlexandrovConsequences.mapping_torus_infimal_volume_bound</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.end_periodic_translation_length_bound" class="lean_decl">AlexandrovConsequences.end_periodic_translation_length_bound</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="cor_unified_volume_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="cor_unified_volume" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">3.4</span><span class="corollary_thmtitle">Corollary 1.7: Unified Degree and Weil–Petersson Core Volume Bound</span></div>
+    <div class="thm_thmcontent"><p>    Combining Corollary&#160;1.6 for \(f \circ h : M'_{\mathrm{geod}} \to M_{\mathrm{geod}}\) (\(|\deg (h)| = 1\)) with the Bridgeman–Brock–Bromberg comparison gives </p>
+<div class="displaymath" id="a0000000024">
+  \[  |k|\, \operatorname {Vol}(C_{M_{\mathrm{geod}}}) + A(\partial Z')\, d_{\mathrm{WP}}(\partial _c M', \partial _c M'_{\mathrm{geod}}) - \delta \le \operatorname {Vol}(C_{M'}).  \]
+</div>
+</div>
+
+    <a class="latex_link" href="sect0003.html#cor_unified_volume">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.unified_degree_weil_petersson_core_bound">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_analytic_degree_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_analytic_degree" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">1.1</span><span class="definition_thmtitle">Analytic Degree and Mitsuishi Comparison Bridge</span></div>
+    <div class="thm_thmcontent"><p>   Let \((X, \mathsf{d}, \mu _X)\) be a finite-measure space and \(Y\) a closed oriented Riemannian \(N\)-manifold with volume \(\operatorname {Vol}(Y) {\gt} 0\). The <em>analytic degree</em> of a map \(f : X \to Y\) with signed metric Jacobian \(\mathrm{sJac}_f\) is </p>
+<div class="displaymath" id="a0000000008">
+  \[  \deg _{\mathrm{an}}(f) := \frac{1}{\operatorname {Vol}(Y)} \int _X \mathrm{sJac}_f(x)\, d\mu _X(x).  \]
+</div>
+<p> A <em>Mitsuishi degree bridge</em> packages \(Y\) together with a fundamental current, singular homology degree \(\deg _{\mathrm{top}}(f)\), current pushforward degree \(\deg _{\mathrm{curr}}(f)\), and the naturality identity \(\deg _{\mathrm{curr}}(f) = \deg _{\mathrm{top}}(f)\) induced by Mitsuishi’s comparison isomorphism \(\Psi : H_N^{\mathbf{I}}(X) \xrightarrow {\sim } H_N(X;\mathbb {Z})\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#def_analytic_degree">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.analyticDegree" class="lean_decl">AlexandrovConsequences.analyticDegree</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.MitsuishiDegreeBridge" class="lean_decl">AlexandrovConsequences.MitsuishiDegreeBridge</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_branched_cone_angle_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_branched_cone_angle" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">2.1</span><span class="definition_thmtitle">Cyclic Branched Cover Cone Angle and Density Drop</span></div>
+    <div class="thm_thmcontent"><p>   For a \(d\)-fold cyclic branched cover \(M_d \to M\) (\(d \ge 2\)), the quotient \(X = M_d / \mathbb {Z}_d\) carries normal cone angle \(\alpha = 2\pi / d \le \pi {\lt} 2\pi \) along the branch locus \(\Sigma \), giving Bishop–Gromov density \(\theta _N(x_0) = \alpha /(2\pi ) {\lt} 1\) and hence \(\mathcal{S}_X \neq \emptyset \). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#def_branched_cone_angle">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.branchedConeAngle" class="lean_decl">AlexandrovConsequences.branchedConeAngle</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.branchedCoverConeAngle_bounds" class="lean_decl">AlexandrovConsequences.branchedCoverConeAngle_bounds</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.not_mem_regularSet_of_coneAngle_lt_two_pi" class="lean_decl">AlexandrovConsequences.not_mem_regularSet_of_coneAngle_lt_two_pi</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.branchedQuotient_singularSet_nonempty" class="lean_decl">AlexandrovConsequences.branchedQuotient_singularSet_nonempty</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_gromov_simplicial_volume_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_gromov_simplicial_volume" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">4.1</span><span class="definition_thmtitle">Gromov’s Simplicial Volume</span></div>
+    <div class="thm_thmcontent"><p>   Given fundamental-cycle representatives <span class="ttfamily">Cycles</span> with \(\ell ^1\)-norm functional <span class="ttfamily">l1Norm</span>, \(\| DM\|  := \inf _{c \in \mathrm{Cycles}} \| c\| _1 \ge 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0004.html#def_gromov_simplicial_volume">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gromovSimplicialVolume" class="lean_decl">AlexandrovConsequences.gromovSimplicialVolume</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.gromovSimplicialVolume_nonneg" class="lean_decl">AlexandrovConsequences.gromovSimplicialVolume_nonneg</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_infimal_convex_volume_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_infimal_convex_volume" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">3.5</span><span class="definition_thmtitle">Infimal Convex-Hyperbolic Volume</span></div>
+    <div class="thm_thmcontent"><p>   For a parameterized family \(S\) of convex hyperbolic metrics on the compactified end-periodic mapping torus \(\overline{M}_\phi \), define \(\underline{\operatorname {Vol}}(\overline{M}_\phi ) := \inf _{g \in S} \operatorname {Vol}(\overline{M}_\phi , g)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#def_infimal_convex_volume">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.infimalConvexHyperbolicVolume">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_satake_einstein_data_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_satake_einstein_data" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">2.3</span><span class="definition_thmtitle">Satake Chern–Gauss–Bonnet and Einstein 4-Orbifold Package</span></div>
+    <div class="thm_thmcontent"><p>   With Chern–Gauss–Bonnet constant \(C_4 = 4\pi ^2/3 {\gt} 0\), a \(4\)-orbifold \((X, g_E)\) with \(\mathrm{Ric}(g_E) = -3 g_E\) satisfies \(h(\overline{X}) \le 3\) and Satake’s inequality \(\operatorname {Vol}(X, g_E) \le \frac{4\pi ^2}{3}\chi _{\mathrm{orb}}(X)\), while a hyperbolic \(4\)-manifold \(Y\) satisfies \(h(\widetilde{Y}) = 3\) and \(\operatorname {Vol}(Y) = \frac{4\pi ^2}{3}\chi (Y)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#def_satake_einstein_data">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.fourManifoldGaussBonnetConst" class="lean_decl">AlexandrovConsequences.fourManifoldGaussBonnetConst</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.fourManifoldGaussBonnetConst_pos" class="lean_decl">AlexandrovConsequences.fourManifoldGaussBonnetConst_pos</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.SatakeEinsteinFourOrbifoldData" class="lean_decl">AlexandrovConsequences.SatakeEinsteinFourOrbifoldData</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="lem_analytic_degree_integral_bound_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="lem_analytic_degree_integral_bound" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">1.2</span><span class="lemma_thmtitle">Analytic Degree Integral Bound</span></div>
+    <div class="thm_thmcontent"><p>    For any integrable signed metric Jacobian \(\mathrm{sJac}_f\) and \(\operatorname {Vol}(Y) {\gt} 0\), \(|\deg _{\mathrm{an}}(f)|\, \operatorname {Vol}(Y) \le \int _X |\mathrm{sJac}_f(x)|\, d\mu _X(x)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#lem_analytic_degree_integral_bound">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.abs_analyticDegree_mul_vol_le_integral_abs">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="lem_remark_index_necessity_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="lem_remark_index_necessity" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">1.5</span><span class="lemma_thmtitle">Remark 1.15: Necessity of the Index Condition and Connected-Sum Counterexample</span></div>
+    <div class="thm_thmcontent"><p>    In the covering factorization \(|\deg (f)| = |\deg (\hat{f})| \cdot [\pi _1(Y) : f_*\pi _1(X)]\) with \(\deg (f) \neq 0\), we have \(|\deg (f)| = [\pi _1(Y) : f_*\pi _1(X)] \iff |\deg (\hat{f})| = 1\). For the pinch map \(Y \#  Y \to Y \vee Y \to Y\) (\(b_1(Y) \ge 1\)), \(|\deg (f)| = 2 {\gt} 1 = [\pi _1(Y):f_*\pi _1(X)]\) and \(b_1(Y \#  Y) = 2 b_1(Y) \neq b_1(Y)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#lem_remark_index_necessity">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.abs_degree_eq_index_iff_lift_degree_one" class="lean_decl">AlexandrovConsequences.abs_degree_eq_index_iff_lift_degree_one</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.connected_sum_rigidity_counterexample" class="lean_decl">AlexandrovConsequences.connected_sum_rigidity_counterexample</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="lem_reviron_entropy_lsc_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="lem_reviron_entropy_lsc" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">5.1</span><span class="lemma_thmtitle">Reviron Entropy Lower-Semicontinuity Product Limit</span></div>
+    <div class="thm_thmcontent"><p>   If \(\operatorname {Vol}(M_i) \to V_X {\gt} 0\), \(h(\widetilde{M}_i)^N \operatorname {Vol}(M_i) \to L\), and \(\forall \varepsilon {\gt} 0, \forall ^\infty i,\,  h_{\mathrm{lim}} \le h(\widetilde{M}_i) + \varepsilon \), then \(h_{\mathrm{lim}}^N V_X \le L\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#lem_reviron_entropy_lsc">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.limit_entropy_pow_le_of_eventually_add_eps">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="lem_selberg_cone_unwrap_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="lem_selberg_cone_unwrap" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">6.3</span><span class="lemma_thmtitle">Selberg Finite Cover Cone-Angle Unwrapping</span></div>
+    <div class="thm_thmcontent"><p>   Along a torsion-free Selberg finite cover \(p : M \to \mathcal{O}\) with local isotropy orders \(m_i \ge 1\), the lifted cone angle satisfies \(m_i \alpha _i \le 2\pi \iff \alpha _i \le 2\pi / m_i\) (and similarly for \({\lt}\)). </p>
+</div>
+
+    <a class="latex_link" href="sect0006.html#lem_selberg_cone_unwrap">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.unwrapped_cone_angle_le_two_pi_iff" class="lean_decl">AlexandrovConsequences.unwrapped_cone_angle_le_two_pi_iff</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.unwrapped_cone_angle_lt_two_pi_iff" class="lean_decl">AlexandrovConsequences.unwrapped_cone_angle_lt_two_pi_iff</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="lem_strictness_and_doubling_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="lem_strictness_and_doubling" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">1.6</span><span class="lemma_thmtitle">Strictness, Entropy Bounds, and Metric Doubling Cancellation</span></div>
+    <div class="thm_thmcontent">
+<ol class="enumerate">
+  <li><p>Whenever \(\mathcal{S}_X \neq \emptyset \), \(|\deg (f)| = [\pi _1(Y):f_*\pi _1(X)] \ge 1\), and equality forces \(\mathcal{S}_X = \emptyset \), the entropy-volume inequality is strict (\({\lt}\)). </p>
+</li>
+  <li><p>Whenever \(0 \le h(\overline{X}) \le h_0\) (\(h_0 {\gt} 0\)) and \(h(\widetilde{Y}) = h_0\), Theorem&#160;1.1 yields \(|\deg (f)|\operatorname {Vol}(Y) \le \mathcal{H}^N(X)\) (and \({\lt}\) when strict). </p>
+</li>
+  <li><p>Under Perelman/Petrunin doubling \(\mathcal{H}^N(DZ) = 2\mathcal{H}^N(Z)\) and \(\mathcal{H}^N(DY) = 2\mathcal{H}^N(Y)\), cancelling \(2 h_0^N {\gt} 0\) gives \(|k|\mathcal{H}^N(Y) \le \mathcal{H}^N(Z)\). </p>
+</li>
+</ol>
+</div>
+
+    <a class="latex_link" href="sect0001.html#lem_strictness_and_doubling">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.strict_entropy_volume_of_singularSet_nonempty" class="lean_decl">AlexandrovConsequences.strict_entropy_volume_of_singularSet_nonempty</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.upper_entropy_bound_volume_inequality" class="lean_decl">AlexandrovConsequences.upper_entropy_bound_volume_inequality</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.same_entropy_volume_degree_bound" class="lean_decl">AlexandrovConsequences.same_entropy_volume_degree_bound</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.same_entropy_strict_volume_degree_bound" class="lean_decl">AlexandrovConsequences.same_entropy_strict_volume_degree_bound</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.metric_doubling_volume_degree_bound" class="lean_decl">AlexandrovConsequences.metric_doubling_volume_degree_bound</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_alexandrov_entropy_degree_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_alexandrov_entropy_degree" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">1.4</span><span class="theorem_thmtitle">Theorem 1.1: Alexandrov Entropy-Degree Theorem and Smoothness Rigidity</span></div>
+    <div class="thm_thmcontent"><p>    Let \(X\) be a closed orientable \(N\)-dimensional Alexandrov space without boundary (\(\mathrm{curv} \ge \kappa \)) and \(f : X \to Y\) a continuous map into a closed orientable negatively curved locally symmetric \(N\)-manifold \(Y\). Via Lipschitz approximation \(f_{\mathrm{lip}} \simeq f\), </p>
+<div class="displaymath" id="a0000000013">
+  \[  |\deg (f)| \,  h(\widetilde{Y})^N \,  \mathcal{H}^N(Y) \le h(\overline{X})^N \,  \mathcal{H}^N(X).  \]
+</div>
+<p> Furthermore, if equality holds together with \(|\deg (f)| = [\pi _1(Y) : f_*\pi _1(X)] \ge 1\), then the rescaled limit map \(\hat{F}_\infty : (X, c\, \mathsf{d}_X) \to \widehat{Y}\) (\(c = h(\overline{X})/h(\widetilde{Y}) {\gt} 0\)) is a surjective global homothety onto the degree-\(|\deg (f)|\) cover \(\widehat{Y}\), and hence \(\mathcal{S}(X) = \emptyset \). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm_alexandrov_entropy_degree">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_entropy_degree_inequality_continuous" class="lean_decl">AlexandrovConsequences.alexandrov_entropy_degree_inequality_continuous</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_entropy_degree_rigidity" class="lean_decl">AlexandrovConsequences.alexandrov_entropy_degree_rigidity</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_analytic_eq_topological_degree_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_analytic_eq_topological_degree" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">1.3</span><span class="theorem_thmtitle">Analytic Degree Equals Topological Degree on Class \(\mathcal{S}\) Spaces</span></div>
+    <div class="thm_thmcontent"><p>    On any class \(\mathcal{S}\) space \(X\) (compact orientable \(N\)-metric space with \(\mathcal{H}^{N-1}(\mathcal{S}_X) = 0\) and Mitsuishi comparison isomorphism \(\Psi \)), every Lipschitz map \(f : X \to Y\) satisfies Kirchheim’s signed area formula and hence </p>
+<div class="displaymath" id="a0000000011">
+  \[  \deg _{\mathrm{an}}(f) = \deg _{\mathrm{top}}(f).  \]
+</div>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm_analytic_eq_topological_degree">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.analytic_eq_topological_degree" class="lean_decl">AlexandrovConsequences.analytic_eq_topological_degree</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.ClassSSpace" class="lean_decl">AlexandrovConsequences.ClassSSpace</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.s_space_analytic_eq_topological_degree" class="lean_decl">AlexandrovConsequences.s_space_analytic_eq_topological_degree</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_boundary_rigidity_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_boundary_rigidity" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">4.3</span><span class="theorem_thmtitle">Theorem 1.10: Boundary Volume Inequality and Rigidity</span></div>
+    <div class="thm_thmcontent"><p>    For a compact orientable \(N\)-dimensional (\(N \ge 3\)) \(\mathrm{Alex}(-1)\) space \(X\) with boundary mapped with degree \(k \neq 0\) to a compact hyperbolic \(N\)-manifold \(Y\) with totally geodesic boundary, \(\operatorname {Vol}(X) \ge |k|\, \operatorname {Vol}(Y)\). Moreover, if \(\operatorname {Vol}(X) = |k|\, \operatorname {Vol}(Y)\) and \(|k| = [\pi _1(DY) : (Df)_* \pi _1(DX)]\), then \(h(\overline{DX}) = N - 1\) (homothety factor \(c = 1\)), \(\mathcal{S}_{DX} = \emptyset \), \(DX\) is globally isometric to the degree-\(|k|\) cover \(\widehat{DY}\), \(\partial X = \mathrm{Fix}(\iota _{DX})\) is totally geodesic, and \(|k| = 1\) implies \(X \cong Y\). </p>
+</div>
+
+    <a class="latex_link" href="sect0004.html#thm_boundary_rigidity">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_boundary_volume_inequality" class="lean_decl">AlexandrovConsequences.alexandrov_boundary_volume_inequality</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_boundary_volume_rigidity" class="lean_decl">AlexandrovConsequences.alexandrov_boundary_volume_rigidity</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_master_catalog_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_master_catalog" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">6.5</span><span class="theorem_thmtitle">Unconditional Octonionic (\(\mathbb {O}\mathbf{H}^2\)) and Master Cone/Orbifold Synthesis</span></div>
+    <div class="thm_thmcontent"><p>    Composing <span class="ttfamily">BCG.octonionic_bcg_main_theorem</span> (\(N = 16, h_0 = 22\) on \(\mathbb {O}\mathbf{H}^2\) via Ruan’s 2024 repair) with Corollary&#160;1.12 gives unconditional octonionic entropy-degree rigidity and Gromov–Hausdorff stability; bundling Corollaries&#160;1.2, 1.14, and&#160;1.15 gives a unified global volume minimality certificate. </p>
+</div>
+
+    <a class="latex_link" href="sect0006.html#thm_master_catalog">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_octonionic_entropy_degree_and_gh_stability" class="lean_decl">AlexandrovConsequences.alexandrov_octonionic_entropy_degree_and_gh_stability</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.alexandrov_hyperbolic_cone_and_orbifold_master_summary" class="lean_decl">AlexandrovConsequences.alexandrov_hyperbolic_cone_and_orbifold_master_summary</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_simplicial_volume_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_simplicial_volume" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">4.2</span><span class="theorem_thmtitle">Theorem 1.9: Acylindrical Convex-Core Bound via Storm’s Theorem</span></div>
+    <div class="thm_thmcontent"><p>    For a relative degree-\(k\) map \(f : (Z, \partial Z) \to (M, \partial M)\) into a compact acylindrical \(3\)-manifold \(M\) with Thurston geodesic-boundary model \(\psi : M \to M_{\mathrm{geod}}\) (\(|\deg (\psi )| = 1\)), Perelman doubling of \(C_Z\) and Storm’s identity \(\operatorname {Vol}(DC_{M_{\mathrm{geod}}}) = \| DM\| \) (or \(v_3 \| DM\| \)) yield \(\operatorname {Vol}(C_Z) \ge \frac{|k|}{2}\, \| DM\| \). </p>
+</div>
+
+    <a class="latex_link" href="sect0004.html#thm_simplicial_volume">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.acylindrical_convex_core_simplicial_bound_scaled" class="lean_decl">AlexandrovConsequences.acylindrical_convex_core_simplicial_bound_scaled</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/alexandrov-entropy-degree-applications/find/#doc/AlexandrovConsequences.acylindrical_convex_core_simplicial_bound" class="lean_decl">AlexandrovConsequences.acylindrical_convex_core_simplicial_bound</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+</div>
+</div> <!-- content -->
+</div> <!-- wrapper -->
+<script src="js/jquery.min.js" type="text/javascript"></script>
+
+<script src="js/d3.min.js"></script>
+<script src="js/hpcc.min.js"></script>
+<script src="js/d3-graphviz.js"></script>
+
+<script type="text/javascript">
+const graphContainer = d3.select("#graph");
+const width = graphContainer.node().clientWidth;
+const height = graphContainer.node().clientHeight;
+
+
+if (window.location.protocol !== "file:") graphContainer.graphviz({useWorker: false})
+    .width(width)
+    .height(height)
+    .fit(true)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	thm_analytic_eq_topological_degree	[color=green,		fillcolor="#1CAC78",		label=thm_analytic_eq_topological_degree,		shape=ellipse,		style=filled];	thm_alexandrov_entropy_degree	[color=green,		fillcolor="#1CAC78",		label=thm_alexandrov_entropy_degree,		shape=ellipse,		style=filled];	thm_analytic_eq_topological_degree -> thm_alexandrov_entropy_degree	[style=dashed];	lem_strictness_and_doubling	[color=green,		fillcolor="#1CAC78",		label=lem_strictness_and_doubling,		shape=ellipse,		style=filled];	thm_alexandrov_entropy_degree -> lem_strictness_and_doubling	[style=dashed];	cor_gh_stability2	[color=green,		fillcolor="#1CAC78",		label=cor_gh_stability2,		shape=ellipse,		style=filled];	thm_alexandrov_entropy_degree -> cor_gh_stability2	[style=dashed];	lem_remark_index_necessity	[color=green,		fillcolor="#1CAC78",		label=lem_remark_index_necessity,		shape=ellipse,		style=filled];	thm_alexandrov_entropy_degree -> lem_remark_index_necessity	[style=dashed];	cor_gh_stability	[color=green,		fillcolor="#1CAC78",		label=cor_gh_stability,		shape=ellipse,		style=filled];	thm_alexandrov_entropy_degree -> cor_gh_stability	[style=dashed];	cor_einstein_euler_obstruction	[color=green,		fillcolor="#1CAC78",		label=cor_einstein_euler_obstruction,		shape=ellipse,		style=filled];	lem_strictness_and_doubling -> cor_einstein_euler_obstruction	[style=dashed];	cor_hamenstadt_gen	[color=green,		fillcolor="#1CAC78",		label=cor_hamenstadt_gen,		shape=ellipse,		style=filled];	lem_strictness_and_doubling -> cor_hamenstadt_gen	[style=dashed];	cor_manifold_boundary	[color=green,		fillcolor="#1CAC78",		label=cor_manifold_boundary,		shape=ellipse,		style=filled];	lem_strictness_and_doubling -> cor_manifold_boundary	[style=dashed];	cor_cone_manifold	[color=green,		fillcolor="#1CAC78",		label=cor_cone_manifold,		shape=ellipse,		style=filled];	lem_strictness_and_doubling -> cor_cone_manifold	[style=dashed];	cor_orbifold_volume_minimality	[color=green,		fillcolor="#1CAC78",		label=cor_orbifold_volume_minimality,		shape=ellipse,		style=filled];	lem_strictness_and_doubling -> cor_orbifold_volume_minimality	[style=dashed];	cor_cone_simplicial_volume	[color=green,		fillcolor="#1CAC78",		label=cor_cone_simplicial_volume,		shape=ellipse,		style=filled];	lem_strictness_and_doubling -> cor_cone_simplicial_volume	[style=dashed];	thm_simplicial_volume	[color=green,		fillcolor="#1CAC78",		label=thm_simplicial_volume,		shape=ellipse,		style=filled];	lem_strictness_and_doubling -> thm_simplicial_volume	[style=dashed];	thm_master_catalog	[color=green,		fillcolor="#1CAC78",		label=thm_master_catalog,		shape=ellipse,		style=filled];	cor_gh_stability2 -> thm_master_catalog	[style=dashed];	cor_gromov_thurston_euler_neg	[color=green,		fillcolor="#1CAC78",		label=cor_gromov_thurston_euler_neg,		shape=ellipse,		style=filled];	thm_boundary_rigidity	[color=green,		fillcolor="#1CAC78",		label=thm_boundary_rigidity,		shape=ellipse,		style=filled];	cor_einstein_euler_obstruction -> cor_gromov_thurston_euler_neg	[style=dashed];	def_satake_einstein_data	[color=green,		fillcolor="#B0ECA3",		label=def_satake_einstein_data,		shape=box,		style=filled];	def_satake_einstein_data -> cor_einstein_euler_obstruction	[style=dashed];	cor_hamenstadt_gen -> thm_master_catalog	[style=dashed];	cor_manifold_boundary -> thm_boundary_rigidity	[style=dashed];	cor_translation_length	[color=green,		fillcolor="#1CAC78",		label=cor_translation_length,		shape=ellipse,		style=filled];	cor_manifold_boundary -> cor_translation_length	[style=dashed];	cor_bonahon_degree	[color=green,		fillcolor="#1CAC78",		label=cor_bonahon_degree,		shape=ellipse,		style=filled];	cor_manifold_boundary -> cor_bonahon_degree	[style=dashed];	cor_orbifold_volume_minimality -> thm_master_catalog	[style=dashed];	cor_cone_manifold_volume	[color=green,		fillcolor="#1CAC78",		label=cor_cone_manifold_volume,		shape=ellipse,		style=filled];	cor_cone_simplicial_volume -> cor_cone_manifold_volume	[style=dashed];	cor_unified_volume	[color=green,		fillcolor="#1CAC78",		label=cor_unified_volume,		shape=ellipse,		style=filled];	cor_bonahon_degree -> cor_unified_volume	[style=dashed];	cor_cone_manifold_volume -> thm_master_catalog	[style=dashed];	lem_reviron_entropy_lsc	[color=green,		fillcolor="#1CAC78",		label=lem_reviron_entropy_lsc,		shape=ellipse,		style=filled];	lem_reviron_entropy_lsc -> cor_gh_stability2	[style=dashed];	def_analytic_degree	[color=green,		fillcolor="#B0ECA3",		label=def_analytic_degree,		shape=box,		style=filled];	lem_analytic_degree_integral_bound	[color=green,		fillcolor="#1CAC78",		label=lem_analytic_degree_integral_bound,		shape=ellipse,		style=filled];	def_analytic_degree -> lem_analytic_degree_integral_bound	[style=dashed];	lem_analytic_degree_integral_bound -> thm_analytic_eq_topological_degree	[style=dashed];	def_branched_cone_angle	[color=green,		fillcolor="#B0ECA3",		label=def_branched_cone_angle,		shape=box,		style=filled];	def_branched_cone_angle -> cor_gromov_thurston_euler_neg	[style=dashed];	def_branched_cone_angle -> cor_hamenstadt_gen	[style=dashed];	def_gromov_simplicial_volume	[color=green,		fillcolor="#B0ECA3",		label=def_gromov_simplicial_volume,		shape=box,		style=filled];	def_gromov_simplicial_volume -> thm_simplicial_volume	[style=dashed];	def_infimal_convex_volume	[color=green,		fillcolor="#B0ECA3",		label=def_infimal_convex_volume,		shape=box,		style=filled];	def_infimal_convex_volume -> cor_translation_length	[style=dashed];	lem_selberg_cone_unwrap	[color=green,		fillcolor="#1CAC78",		label=lem_selberg_cone_unwrap,		shape=ellipse,		style=filled];	lem_selberg_cone_unwrap -> cor_orbifold_volume_minimality	[style=dashed];}`)
+    .on("end", interactive);
+
+latexLabelEscaper = function(label) {
+  return label.replace(/\./g, '\\.').replace(/:/g, '\\:')
+}
+
+clickNode = function() {
+  $("#statements div").hide()
+  var node_id = $('text', this).text();
+  $('.thm').hide();
+  $('#'+latexLabelEscaper(node_id)).show().children().show();
+}
+document.addEventListener("DOMContentLoaded", function() { try { interactive(); } catch (e) {} });
+function interactive() {
+    $("span#legend_title").on("click", function () {
+           $(this).siblings('dl').toggle();
+        })
+
+    d3.selectAll('.node')
+        .attr('pointer-events', 'fill')
+        .on('click', function () {
+           var title = d3.select(this).selectAll('title').text().trim();
+           $('#statements > div').hide()
+           $('.thm').hide();
+           $('#'+latexLabelEscaper(title)+'_modal').show().children().show().children().show();
+           $('#statements').show()
+        });
+
+    d3.selectAll('.dep-closebtn').on('click', function() {
+        var modal =
+            d3.select(this).node().parentNode.parentNode.parentNode ;
+        d3.select(modal).style('display', 'none');
+    });
+}
+
+</script>
+
+</body>
+</html>
