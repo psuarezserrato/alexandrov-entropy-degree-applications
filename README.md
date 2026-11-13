@@ -56,4 +56,4 @@ lake build
 
 ## License
 
-Licensed under the Apache License, Version 2.0 ([`LICENSE`](LICENSE)).
+Licensed under the GNU Affero General Public License v3.0 (AGPLv3) with non-commercial use notice ([`LICENSE.md`](LICENSE.md)).
